@@ -1,0 +1,80 @@
+<sitemesh>
+
+    <!--<mapping decorator="/template/decorators/a_main.jsp"/>-->
+
+    <mapping path="*ajax*" exclue="true"/>
+    <mapping path="*json*" exclue="true"/>
+    <mapping path="*/include/*" exclue="true"/>
+    <mapping path="*/assets/*" exclue="true"/>
+    <mapping path="*/comeBack*" exclue="true"/>
+
+    <!--<mapping path="*/login.jsp" exclue="true"/>
+    <mapping path="*/login" exclue="true"/>
+    <mapping path="*/logout" exclue="true"/>-->
+
+
+    <mapping decorator="/template/decorators/main.jsp"/>
+
+    <mapping>
+        <path>/a/Core*</path>
+        <decorator>/template/decorators/core.jsp</decorator>
+        <decorator>/template/decorators/main.jsp</decorator>
+    </mapping>
+    <mapping>
+        <path>/a/Base/User/edit*</path>
+        <decorator>/template/decorators/core.jsp</decorator>
+        <decorator>/template/decorators/main.jsp</decorator>
+    </mapping>
+    <mapping>
+        <path>/Core/Doc*</path>
+        <decorator>/template/decorators/core.jsp</decorator>
+        <decorator>/template/decorators/main.jsp</decorator>
+    </mapping>
+    <!--
+    <mapping>
+        <path>/a/*</path>
+        <decorator>/template/decorators/core.jsp</decorator>
+        <decorator>/template/decorators/main.jsp</decorator>
+    </mapping>
+    <mapping>
+        <path>/a/*Edit*</path>
+        <decorator>/template/decorators/edit.jsp</decorator>
+        <decorator>/template/decorators/main.jsp</decorator>
+    </mapping>
+
+    <mapping>
+        <path>/a/*List*</path>
+        <decorator>/template/decorators/list.jsp</decorator>
+        <decorator>/template/decorators/main.jsp</decorator>
+    </mapping>-->
+
+
+
+
+    <!-- 增加自定义标签，目前只提供了一个 myfooter -->
+    <content-processor>
+        <tag-rule-bundle class="com.filter.MyExportTagToContentRule" />
+    </content-processor>
+
+    <!--
+        &lt;!&ndash; 配置默认的渲染器. 将应用于所有路径. &ndash;&gt;
+        <mapping decorator="/default-decorator.html"/>
+
+        &lt;!&ndash; 配置特定路径的渲染器. &ndash;&gt;
+        <mapping path="/admin/*" decorator="/another-decorator.html"/>
+        <mapping path="/*.special.jsp" decorator="/special-decorator.html"/>
+
+        &lt;!&ndash; 配置多个渲染器. &ndash;&gt;
+        <mapping>
+            <path>/articles/*</path>
+            <decorator>/decorators/article.html</decorator>
+            <decorator>/decorators/two-page-layout.html</decorator>
+            <decorator>/decorators/common.html</decorator>
+        </mapping>
+
+        &lt;!&ndash; 不被渲染的路径. &ndash;&gt;
+        <mapping path="/javadoc/*" exclue="true"/>
+        <mapping path="/brochures/*" exclue="true"/>
+        -->
+
+</sitemesh>

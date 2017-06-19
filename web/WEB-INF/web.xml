@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+           version="3.0">
+
+
+
+    <servlet>
+        <servlet-name>WxServlet</servlet-name>
+        <servlet-class>com.filter.WxServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WxServlet</servlet-name>
+        <url-pattern>/wx</url-pattern>
+    </servlet-mapping>
+
+
+
+
+    <filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>com.filter.LoginFilter</filter-class>
+        <!--<init-param>-->
+        <!--<param-name>loginURL</param-name>-->
+        <!--<param-value>sessionfailure.jsp</param-value>-->
+        <!--</init-param>-->
+        <init-param>
+            <param-name>loginURL</param-name>
+            <param-value>a/Base/User/login</param-value>
+        </init-param>
+        <init-param>
+            <param-name>disableURL</param-name>
+            <!--<param-value>
+                /template/*;/index.jsp;/a/admin/UserInfo/login;/a/admin/UserInfo/logout;
+            </param-value>-->
+            <!--<param-value>
+                /index.jsp;/a/Base/UserInfo/login;/a/Base/UserInfo/logout;/a/Base/UserInfo/reg;
+            </param-value>-->
+            <param-value>
+                /index.jsp;/a/Base/User/login;/a/Base/User/logout;/a/Base/User/reg;/a/Base/User/postSMSajax;/a/Base/User/getBackPass;/a/Base/User/saveNewPwd;/bind;/wx
+            </param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/a/*</url-pattern>
+    </filter-mapping>
+
+
+
+    <!-- zhuang shi qi -->
+    <filter>
+        <filter-name>sitemesh</filter-name>
+        <filter-class>org.sitemesh.config.ConfigurableSiteMeshFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>sitemesh</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+    <!--struts2-->
+    <filter>
+        <filter-name>struts-cleanup</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>struts-cleanup</filter-name>
+        <url-pattern>/a/*</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>struts</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>struts</filter-name>
+        <url-pattern>/a/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+
+
+
+    <!-- yan zheng ma -->
+    <!--<servlet>
+        <servlet-name>ImageIOServlet</servlet-name>
+        <servlet-class>com.frame.util.ImageIOServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ImageIOServlet</servlet-name>
+        <url-pattern>/servlet/imageio</url-pattern>
+    </servlet-mapping>-->
+
+
+    <!--spring-->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:applicationContext.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+
+    <listener>
+        <listener-class>com.filter.SystemListener</listener-class>
+    </listener>
+
+    <jsp-config>
+        <jsp-property-group>
+            <description>HTML Encoding</description>
+            <display-name>HTML Encoding Config</display-name>
+            <url-pattern>*.html</url-pattern>
+            <el-ignored>true</el-ignored>
+            <page-encoding>UTF-8</page-encoding>
+            <scripting-invalid>true</scripting-invalid>
+        </jsp-property-group>
+    </jsp-config>
+
+    <welcome-file-list>
+        <welcome-file>/index.jsp</welcome-file>
+    </welcome-file-list>
+
+</web-app>

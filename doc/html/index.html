@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<title></title>
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+			.header .search{
+				height: 1.8rem;
+				background-color: red;
+			}
+			.header .menu{
+				height: 1.2rem;
+				background-color: rosybrown;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div class="header">
+			<div class="search"></div>
+			<div class="menu"></div>
+		</div>
+		<div class="center"></div>
+		<div class="footer"></div>
+	</body>
+	
+	<script language="JavaScript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script>
+		
+!(function(doc, win) {
+    var docEle = doc.documentElement,
+        evt = "onorientationchange" in window ? "orientationchange" : "resize",
+        fn = function() {
+            var width = docEle.clientWidth;
+            width && (docEle.style.fontSize = 20 * (width / 320) + "px");
+        };
+
+    win.addEventListener(evt, fn, false);
+    doc.addEventListener("DOMContentLoaded", fn, false);
+
+}(document, window));
+	</script>
+</html>

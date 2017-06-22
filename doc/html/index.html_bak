@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<title></title>
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/swiper.min.css" />
+		<link rel="stylesheet" href="//at.alicdn.com/t/font_4qk2y7ih1cwka9k9.css" />
+		<style>
+		
+			.header .search {
+				height: 1.23rem;
+				background-color: #FFFFFF;
+				padding-top: 0.57rem;
+				padding-left: 0.38rem;
+			}
+			
+			.header .search>div {
+				float: left;
+				line-height: 1rem;
+			}
+			
+			.header .search>div:first-child {
+				width: 12.16rem;
+				background-color: #f4f4f4;
+				border-radius: 0.19rem;
+				position: relative;
+				margin-left: 0.76rem;
+			}
+			.header .search>div:last-child {
+				padding-left: 0.38rem;
+			}
+			.header .search>div:last-child a{
+				color: #999999;
+			}
+			.header .search i{
+				position:absolute;
+				left: 0.3rem;
+				top: 0.114rem;
+				color: #999999;
+			}
+			.header .search input {
+				padding: 0px;
+				margin: 0px;
+				border: 0px;
+				background-color: #f4f4f4;
+				height: 1rem;
+				margin-left: 1.2rem;
+				width: 10.5rem;
+			}
+			
+			.header .search a {
+				height: 1rem;
+				border: 0px;
+			}
+			
+			.header .menu {
+				height: 1.2rem;
+				background-color: #FFFFFF;
+			}
+			.header .menu ul,li{
+				padding: 0px;
+				margin: 0px;
+				list-style-type:none;
+				float: left;
+			}
+			.header .menu li{
+				padding-left: 0.38rem;
+				padding-right: 0.38rem;	
+			}
+			
+			/* 轮播 */
+			
+			.rotation {
+				background-color: #FFFFFF;
+			}
+			
+			.rotation img {
+				width: 100%;
+			}
+			/* 精品 */
+			
+			.boutique {
+				margin-top: 0.38rem;
+				background-color: #FFFFFF;
+			}
+			
+			.boutique>div:first-child {
+				text-align: center;
+				padding-top: 10px;
+				padding-bottom: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="search">
+				<div>
+					<i class="icon iconfont icon-search"></i>
+					<input type="text" />
+				</div>
+				<div>
+					<a href="index.html">搜索</a>
+				</div>
+			</div>
+			<div class="menu">
+				<!--<ul>
+					<li>推荐</li>
+					<li>分类1</li>
+					<li>分类2分类2</li>
+					<li>分类3</li>
+					<li>分类1</li>
+					<li>分类2分类2</li>
+					<li>分类3</li>
+					<li>分类1</li>
+					<li>分类2分类2</li>
+					<li>分类3</li>
+					<li>分类1</li>
+					<li>分类2分类2</li>
+					<li>分类3</li>
+					<li>分类1</li>
+					<li>分类2分类2</li>
+					<li>分类3</li>
+				</ul>-->
+				
+				<div class="menu_swiper-container">
+				  <div class="swiper-wrapper">
+				    <div class="swiper-slide">推荐</div>
+				    <div class="swiper-slide">分类1</div>
+				    <div class="swiper-slide">分类2</div><div class="swiper-slide">分类1</div>
+				    <div class="swiper-slide">分类2</div><div class="swiper-slide">分类1</div>
+				    <div class="swiper-slide">分类2</div><div class="swiper-slide">分类1</div>
+				    <div class="swiper-slide">分类2</div><div class="swiper-slide">分类1</div>
+				    <div class="swiper-slide">分类2</div>
+				  </div>
+				</div>
+				
+			</div>
+			
+
+		</div>
+		<div class="center">
+			<div class="rotation">
+				<div class="swiper-container">
+				  <div class="swiper-wrapper">
+				    <div class="swiper-slide"><img src="http://image.99ys.com/images/20131121/20131121085228135623.jpg" /></div>
+				    <div class="swiper-slide"><img src="http://image.99ys.com/images/20131121/20131121085228135623.jpg" /></div>
+				    <div class="swiper-slide"><img src="http://image.99ys.com/images/20131121/20131121085228135623.jpg" /></div>
+				  </div>
+				</div>
+			</div>
+			<div class="boutique">
+				<div>精品推荐</div>
+				<div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+		</div>
+		<div class="footer"></div>
+	</body>
+
+	<script language="JavaScript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/swiper.jquery.min.js" ></script>
+	<script>
+		var menu_Swiper = new Swiper('.menu_swiper-container', {
+			slidesPerView : 6
+		});
+		
+		var mySwiper = new Swiper('.swiper-container', {
+			autoplay: 5000//可选选项，自动滑动
+		});
+
+		!(function(doc, win) {
+			var docEle = doc.documentElement,
+				evt = "onorientationchange" in window ? "orientationchange" : "resize",
+				fn = function() {
+					var width = docEle.clientWidth;
+					width && (docEle.style.fontSize = 20 * (width / 320) + "px");
+				};
+			win.addEventListener(evt, fn, false);
+			doc.addEventListener("DOMContentLoaded", fn, false);
+		}(document, window));
+	</script>
+
+</html>

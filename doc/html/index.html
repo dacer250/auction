@@ -119,25 +119,42 @@
 				padding-bottom: 10px;
 			}
 			
-			.boutique .img_box {
-				width: 100%;
-				height: 7.6rem;
-				position: relative;
-				overflow: hidden;
+			.boutique img {
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
 			}
 			
-			.boutique .img1 {
+			.boutique .img_box1 {
+				width: 50%;
+				height: 11.4rem;
+				display: table;
+				text-align: center;
+				float: left;
+				padding: 0.114rem;
+			}
+			
+			.boutique .img_box1>span {
+				display: table-cell;
+				vertical-align: middle;
+			}
+			
+			.boutique .img_box2 {
 				width: 50%;
 				float: left;
-				height: 7.6rem;
-				position: relative;
 			}
 			
-			.boutique .img_box img {
+			.boutique .img_box2>div {
 				width: 100%;
-				position: absolute;
-				left: 50%;
-				top: 50%
+				height: 5.7rem;
+				display: table;
+				text-align: center;
+			}
+			
+			.boutique .img_box2>div>span {
+				display: table-cell;
+				vertical-align: middle;
 			}
 		</style>
 	</head>
@@ -181,26 +198,30 @@
 		<div class="center">
 			<div class="rotation">
 				<ul class="bxslider">
-					<li><img src="http://image.99ys.com/images/20131121/20131121085228135623.jpg" /></li>
-					<li><img src="http://image.99ys.com/images/20131121/20131121085228135623.jpg" /></li>
-					<li><img src="http://image.99ys.com/images/20131121/20131121085228135623.jpg" /></li>
+					<li><img src="https://modao.cc/uploads3/images/1018/10185618/raw_1497095559.png" /></li>
+					<li><img src="https://modao.cc/uploads3/images/1018/10185618/raw_1497095559.png" /></li>
+					<li><img src="https://modao.cc/uploads3/images/1018/10185618/raw_1497095559.png" /></li>
 				</ul>
 			</div>
 			<div class="boutique">
 				<div>精品推荐</div>
 				<div>
 					<div>
-						<div>
-							<span><img src="http://image.99ys.com/images/20131121/20131121085228135623.jpg" /></span>
+						<div class="img_box1">
+							<span><img src="https://modao.cc/uploads3/images/1018/10185618/raw_1497095559.png" /></span>
+
 						</div>
-						<div>
-							<div><img src="http://image.99ys.com/images/20131121/20131121085228135623.jpg" /></div>
-							<div><img src="http://image.99ys.com/images/20131121/20131121085228135623.jpg" /></div>
+						<div class="img_box2">
+							<div><span><img src="https://modao.cc/uploads3/images/1018/10185792/raw_1497097383.png" /></span></div>
+							<div><span><img src="https://modao.cc/uploads3/images/1018/10185792/raw_1497097383.png" /></span></div>
 						</div>
 					</div>
 				</div>
+				<div class="clear"></div>
 			</div>
-			<div class="footer"></div>
+			
+		</div>
+		<div class="footer"></div>
 	</body>
 
 	<script language="JavaScript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>

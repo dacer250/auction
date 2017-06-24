@@ -7,14 +7,20 @@
 		<title></title>
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/jquery.bxslider.min.css" />
-		<link rel="stylesheet" href="//at.alicdn.com/t/font_4qk2y7ih1cwka9k9.css" />
+		<link rel="stylesheet" href="//at.alicdn.com/t/font_8oxcgnc5gvgkqpvi.css" />
 		<style>
 			.bx-wrapper {
 				margin-bottom: 0px;
 				-webkit-box-shadow: 0 0 0px #FFFFFF;
 				box-shadow: 0 0 0px #FFFFFF;
 			}
-			
+			.header{
+				position: fixed;
+				width: 100%;
+				top: 0rem;
+				z-index: 9999;
+				background-color: #FFFFFF;
+			}
 			.header .search {
 				height: 1.23rem;
 				background-color: #FFFFFF;
@@ -66,14 +72,14 @@
 			}
 			
 			.header .menu {
-				height: 1.2rem;
-				line-height: 1.3rem;
+				height: 1.8rem;
 				background-color: #FFFFFF;
 				padding-left: 0.38rem;
 				padding-right: 0.38rem;
 			}
 			
 			.header .menu>div {
+				padding-top: 0.5rem;
 				clear: both;
 				overflow-x: auto;
 				overflow-y: hidden;
@@ -85,32 +91,44 @@
 			.header .menu span {
 				padding-left: 0.19rem;
 				padding-right: 0.19rem;
+				display: inline-block;
 			}
 			
 			.header .menu .active span {
-				border-bottom: 0.114rem solid #a2313e;
+				border-bottom: 0.076rem solid #a2313e;
 				color: #a2313e;
-				padding-bottom: 0.076rem;
 			}
 			
 			::-webkit-scrollbar {
 				width: 0;
 				height: 0;
 			}
+			
+			.center{
+				margin-top: 3.03rem;
+				margin-bottom: 2.6rem;
+			}
 			/* 轮播 */
 			
 			.rotation {
 				background-color: #FFFFFF;
-			}
-			
-			.rotation img {
 				width: 100%;
+				overflow: hidden;
+				height: 11.3rem;
+			}
+			.rotation img{
+				width: 100%;
+				height: 100%;
+				padding: 0px;
+				margin: 0px;
 			}
 			/* 精品 */
 			
 			.boutique {
 				margin-top: 0.38rem;
 				background-color: #FFFFFF;
+				font-size: 0.684rem;
+				
 			}
 			
 			.boutique>div:first-child {
@@ -133,6 +151,7 @@
 				text-align: center;
 				float: left;
 				padding: 0.114rem;
+				border-right:#f4f4f4 1px solid;;
 			}
 			
 			.boutique .img_box1>span {
@@ -143,19 +162,90 @@
 			.boutique .img_box2 {
 				width: 50%;
 				float: left;
+				padding: 0.114rem;
 			}
 			
 			.boutique .img_box2>div {
 				width: 100%;
-				height: 5.7rem;
 				display: table;
 				text-align: center;
 			}
-			
+			.boutique .img_box2>div:first-child{
+				border-bottom: #f4f4f4 1px solid;
+			}
 			.boutique .img_box2>div>span {
 				display: table-cell;
 				vertical-align: middle;
 			}
+			
+			/*人气推荐*/
+			.ranking{
+				margin-top: 0.38rem;
+				background-color: #FFFFFF;
+				font-size: 0.684rem;
+			}
+			
+			.ranking>div:first-child {
+				text-align: center;
+				padding-top: 10px;
+				padding-bottom: 10px;
+			}
+			.ranking .row{
+				margin: 0.38rem;
+				border:#f4f4f4 1px solid ;
+			}
+			.ranking .row .left{
+				float: left;
+				width: 45%;
+				display: table;
+				text-align: center;
+			}
+			.ranking .row .left>span {
+				display: table-cell;
+				vertical-align: middle;
+			}
+			.ranking .row .right{
+				float: right;
+				width: 55%;
+				padding: 0.38rem;
+			}
+			.ranking .row .right>p:first-child{
+				font-size: 0.912rem;
+			}
+			.ranking .row .right>p:last-child{
+				color: #666666;
+			}
+			.ranking .row img{
+				width: 100%;
+				padding: 0.38rem;
+			}
+			.footer{
+				position: fixed;
+				bottom: -0.038rem;
+				z-index: 9999;
+				width: 100%;
+			}
+			.footer ul,li{
+				padding: 0px;
+				margin: 0px;
+				background-color: #FFFFFF;
+				padding-top: 0.076rem;
+			}
+			.footer li{
+				list-style: none;
+				float: left;
+				width: 20%;
+				height: 2.3rem;
+				text-align: center;
+
+			}
+			.footer .active{
+				color: #a2313e;
+			}
+			.iconfont{
+				font-size: 1.216rem;
+			}
+			
 		</style>
 	</head>
 
@@ -198,8 +288,8 @@
 		<div class="center">
 			<div class="rotation">
 				<ul class="bxslider">
-					<li><img src="https://modao.cc/uploads3/images/1018/10185618/raw_1497095559.png" /></li>
-					<li><img src="https://modao.cc/uploads3/images/1018/10185618/raw_1497095559.png" /></li>
+					<li><img src="https://modao.cc/uploads3/images/1018/10185792/raw_1497097383.png" /></li>
+					<li><img src="http://img0.imgtn.bdimg.com/it/u=1615393397,2816982935&fm=26&gp=0.jpg" /></li>
 					<li><img src="https://modao.cc/uploads3/images/1018/10185618/raw_1497095559.png" /></li>
 				</ul>
 			</div>
@@ -209,7 +299,6 @@
 					<div>
 						<div class="img_box1">
 							<span><img src="https://modao.cc/uploads3/images/1018/10185618/raw_1497095559.png" /></span>
-
 						</div>
 						<div class="img_box2">
 							<div><span><img src="https://modao.cc/uploads3/images/1018/10185792/raw_1497097383.png" /></span></div>
@@ -219,14 +308,127 @@
 				</div>
 				<div class="clear"></div>
 			</div>
-			
+			<div class="ranking">
+				<div>人气推荐</div>
+				<div class="list">
+					<div class="row">
+						<div class="left">
+							<span>
+							<img src="https://modao.cc/uploads3/images/1016/10168511/raw_1496997638.jpeg">
+							</span>
+						</div>
+						<div class="right">
+							<p>清代和田白玉香薰</p>
+							<p>清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰</p>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="row">
+						<div class="left">
+							<span>
+							<img src="https://modao.cc/uploads3/images/1016/10168511/raw_1496997638.jpeg">
+							</span>
+						</div>
+						<div class="right">
+							<p>清代和田白玉香薰</p>
+							<p>清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰</p>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="row">
+						<div class="left">
+							<span>
+							<img src="https://modao.cc/uploads3/images/1016/10168511/raw_1496997638.jpeg">
+							</span>
+						</div>
+						<div class="right">
+							<p>清代和田白玉香薰</p>
+							<p>清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰</p>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
 		</div>
-		<div class="footer"></div>
+		<div class="footer">
+			<div>
+				<ul>
+					<li class="active">
+						<div><i class="iconfont icon-shouye-copy-copy-copy"></i>
+						</div>
+						<div><span>首页</span></div>
+					</li>
+					<li>
+						<div><i class="iconfont icon-comiiszixun"></i></div>
+						<div><span>资讯</span></div>
+					</li>
+					<li>
+						<div><i class="iconfont icon-tubiao3"></i></div>
+						<div><span>分类</span></div>
+					</li>
+					<li>
+						<div><i class="iconfont icon-gongsi"></i></div>
+						<div><span>公司简介</span></div>
+					</li>
+					<li>
+						<div><i class="iconfont icon-weizhi"></i></div>
+						<div><span>联系我们</span></div>
+					</li>
+				</ul>
+			</div>
+		</div>
 	</body>
 
 	<script language="JavaScript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script type="text/javascript" src="assets/js/jquery.bxslider.min.js"></script>
 	<script>
+		window.onload = function() {
+			var w = $(".img_box2").width(); //设置最大宽度,也可根据img的外部容器 而动态获得,比如：$("#demo").width();
+			var h = $(".img_box1").height()/2 -5;
+
+			$(".img_box2 img").each(function() { //如果有很多图片,使用each()遍历   
+				var img_w = $(this).width(); //图片宽度   
+				var img_h = $(this).height(); //图片高度   
+				if(img_w > w) { //如果图片宽度超出指定最大宽度   
+					var height = (w * img_h) / img_w; //高度等比缩放   
+					$(this).css({
+						"width": w,
+						"height": height
+					}); //设置缩放后的宽度和高度   
+				}
+
+				if(img_h > h) { //如果图片宽度超出指定最大宽度   
+					var width = (h * img_w) / img_h; //高度等比缩放   
+					$(this).css({
+						"width": width,
+						"height": h
+					}); //设置缩放后的宽度和高度   
+				}
+			});
+
+			w = $(".img_box1").width(); //设置最大宽度,也可根据img的外部容器 而动态获得,比如：$("#demo").width();
+			h = $(".img_box1").height();
+
+			$(".img_box1 img").each(function() { //如果有很多图片,使用each()遍历   
+				var img_w = $(this).width(); //图片宽度   
+				var img_h = $(this).height(); //图片高度   
+				if(img_w > w) { //如果图片宽度超出指定最大宽度   
+					var height = (w * img_h) / img_w; //高度等比缩放   
+					$(this).css({
+						"width": w,
+						"height": height
+					}); //设置缩放后的宽度和高度   
+				}
+				if(img_h > (h / 2)) { //如果图片宽度超出指定最大宽度   
+					var width = ((h / 2) * img_w) / img_h; //高度等比缩放   
+					$(this).css({
+						"width": width,
+						"height": (h / 2)
+					}); //设置缩放后的宽度和高度   
+				}
+			});
+		}
 		$(document).ready(function() {
 			$('.bxslider').bxSlider({
 				displaySlideQty: 1, //显示li的个数

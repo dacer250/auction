@@ -11,20 +11,25 @@
 			.header {
 				height: 2rem;
 			}
-			
+			html,body{
+				height: 100%;
+			}
 			.center {
-				margin-top: 2rem;
+				padding-top: 2rem;
+				height: 100%;
+				overflow: hidden;
 			}
 			
 			.center .left {
 				height: 100%;
 				width: 5.7rem;
-				padding-top: 2rem;
 				padding-bottom: 2.3rem;
-				overflow: hidden;
+				overflow: auto;
+				float: left;
 			}
 			
 			.center .left>div {
+				height: 100%;
 				font-size: 0.836rem;
 				height: 2rem;
 				line-height: 2rem;
@@ -33,6 +38,18 @@
 			
 			.center .left .active {
 				font-size: 1.064rem;
+				color: #a2313e;
+				position: relative;
+				
+			}
+			.center .left .active >span{
+				position: absolute;
+				display: block;
+				border-left: 0.076rem solid #a2313e;
+				margin-left: 0.38rem;
+			}
+			.center .right{
+				padding-left: 5.7rem;
 			}
 		</style>
 	</head>
@@ -52,7 +69,8 @@
 		<div class="center">
 			<div class="left">
 				<div>
-					<div class="active">推荐</div>
+					<div class="active"><span>&nbsp;</span>推荐</div>
+					<div class="active"><span>&nbsp;</span>字画</div>
 					<div>字画</div>
 					<div>字画</div>
 					<div>字画</div>
@@ -67,11 +85,18 @@
 					<div>字画</div>
 					<div>字画</div>
 					<div>字画</div>
-					<div>字画</div>
-					<div>字画</div>
+					<div>字画222</div>
 				</div>
 			</div>
-			<div class="right">abc</div>
+			<div class="right">
+				<div>title</div>
+				<div class="list">
+					<div class="row">
+						<img src="">
+						<p>abc</p>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="footer">
 			<div>

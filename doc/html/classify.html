@@ -11,13 +11,17 @@
 			.header {
 				height: 2rem;
 			}
-			html,body{
+			
+			html,
+			body {
 				height: 100%;
 			}
+			
 			.center {
 				padding-top: 2rem;
 				height: 100%;
 				overflow: hidden;
+				background-color: #FFFFFF;
 			}
 			
 			.center .left {
@@ -26,6 +30,7 @@
 				padding-bottom: 2.3rem;
 				overflow: auto;
 				float: left;
+				border-right: 1px solid #f0f0f0;
 			}
 			
 			.center .left>div {
@@ -36,20 +41,33 @@
 				text-align: center;
 			}
 			
+			.center .left>div span {
+				position: absolute;
+				top: 0px;
+			}
+			
 			.center .left .active {
 				font-size: 1.064rem;
 				color: #a2313e;
 				position: relative;
-				
 			}
-			.center .left .active >span{
+			
+			.center .left .active>span {
 				position: absolute;
+				top: 0px;
 				display: block;
 				border-left: 0.076rem solid #a2313e;
 				margin-left: 0.38rem;
 			}
-			.center .right{
-				padding-left: 5.7rem;
+			
+			.center .right {
+				padding-left: 6.08rem;
+				padding-top: 0.38rem;
+				padding-right: 0.38rem;
+				padding-bottom: 0.38rem;
+			}
+			
+			.center .right .title span {
 			}
 		</style>
 	</head>
@@ -69,9 +87,9 @@
 		<div class="center">
 			<div class="left">
 				<div>
-					<div class="active"><span>&nbsp;</span>推荐</div>
+					<div><span>&nbsp;</span>推荐</div>
 					<div class="active"><span>&nbsp;</span>字画</div>
-					<div>字画</div>
+					<div><span>&nbsp;</span>字画</div>
 					<div>字画</div>
 					<div>字画</div>
 					<div>字画</div>
@@ -89,7 +107,7 @@
 				</div>
 			</div>
 			<div class="right">
-				<div>title</div>
+				<div class="title"><span>——</span>字画分类<span>——</span></div>
 				<div class="list">
 					<div class="row">
 						<img src="">

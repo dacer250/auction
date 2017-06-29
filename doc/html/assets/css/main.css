@@ -45,6 +45,7 @@ p {
 	top: 0rem;
 	z-index: 9999;
 	background-color: #F8F8F8;
+	border-bottom: 1px solid #f0f0f0;
 }
 
 .header .search {
@@ -107,13 +108,14 @@ p {
 	bottom: -0.038rem;
 	z-index: 9999;
 	width: 100%;
+	border-top: 1px solid #f0f0f0;;
 }
 
 .footer ul,
 li {
 	padding: 0px;
 	margin: 0px;
-	background-color: #FFFFFF;
+	background-color: #F8F8F8;
 	padding-top: 0.076rem;
 }
 

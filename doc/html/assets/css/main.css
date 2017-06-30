@@ -7,7 +7,7 @@ body {
 	margin: 0;
 	padding: 0;
 	background-color: #f4f4f4;
-	font-size: 0.6rem;
+	font-size: 0.532rem;
 	font-family: "微软雅黑";
 }
 
@@ -34,6 +34,10 @@ p {
 	margin: 0px;
 }
 
+ul,li{
+	padding: 0px;
+	margin: 0px;
+}
 ::-webkit-scrollbar {
 	width: 0;
 	height: 0;
@@ -94,7 +98,7 @@ p {
 
 .header .search a {
 	height: 1rem;
-	font-size: 0.8rem;
+	font-size: 0.532rem;
 	border: 0px;
 }
 
@@ -105,26 +109,21 @@ p {
 
 .footer {
 	position: fixed;
-	bottom: -0.038rem;
+	bottom: 0px;
 	z-index: 9999;
 	width: 100%;
-	border-top: 1px solid #f0f0f0;;
-}
-
-.footer ul,
-li {
-	padding: 0px;
-	margin: 0px;
-	background-color: #F8F8F8;
-	padding-top: 0.076rem;
+	border-top: 1px solid #f0f0f0;
+	font-size: 0.532rem;
 }
 
 .footer li {
 	list-style: none;
 	float: left;
 	width: 20%;
-	height: 2.3rem;
+	height: 2.09rem;
 	text-align: center;
+	background-color: #F8F8F8;
+	padding-top: 0.076rem;
 }
 
 .footer .active {
@@ -132,5 +131,5 @@ li {
 }
 
 .iconfont {
-	font-size: 1.216rem;
+	font-size: 0.912rem;
 }

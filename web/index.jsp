@@ -9,7 +9,7 @@
 <html>
 <head>
     <title></title>
-    <meta http-equiv="refresh" content="0;url=/a/Core/Income/incomeSum" />
+    <meta http-equiv="refresh" content="0;url=/a/main/Index/show" />
 </head>
 <body>
 

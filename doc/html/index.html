@@ -9,14 +9,23 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/swiper.min.css" />
 		<style>
-			.header .menu {
-				height: 1.8rem;
+			.header {
+				border-bottom: none;
+			}
+			
+			.menu {
+				position: fixed;
+				width: 100%;
+				top: 2rem;
+				z-index: 9999;
+				background-color: #F8F8F8;
+				border-bottom: 1px solid #f0f0f0;
+				height: 1rem;
 				padding-left: 0.38rem;
 				padding-right: 0.38rem;
 			}
 			
-			.header .menu>div {
-				padding-top: 0.5rem;
+			.menu>div {
 				clear: both;
 				overflow-x: auto;
 				overflow-y: hidden;
@@ -25,16 +34,20 @@
 				scroll-snap-type: mandatory;
 			}
 			
-			.header .menu span {
+			.menu span {
 				padding-left: 0.19rem;
 				padding-right: 0.19rem;
 				display: inline-block;
 			}
 			
-			.header .menu .active span {
+			.menu .active span {
 				padding-bottom: 0.15rem;
 				border-bottom: 0.076rem solid #a2313e;
 				color: #a2313e;
+			}
+			
+			.center {
+				padding-top: 3rem;
 			}
 			/* 轮播 */
 			
@@ -43,15 +56,17 @@
 				width: 100%;
 				height: 11.3rem;
 			}
-			.swiper-slide{
+			
+			.swiper-slide {
 				height: 11.3rem;
 				background-color: #FFFFFF;
+				padding: 0.38rem;
 			}
-			.swiper-slide >div {
-				height: 11.3rem;
+			
+			.swiper-slide>div {
+				height: 100%;
 				background-size: 100% auto;
 				background-position: center center;
-				margin: 0.38rem;
 			}
 			/* 精品 */
 			
@@ -59,6 +74,7 @@
 				margin-top: 0.38rem;
 				background-color: #FFFFFF;
 				font-size: 0.684rem;
+				padding-bottom: 0.38rem;
 			}
 			
 			.boutique>div:first-child {
@@ -189,32 +205,33 @@
 					<a href="index.html">搜索</a>
 				</div>
 			</div>
-			<div class="menu">
-				<div>
-					<a href="#" class="active"><span>推荐推荐</span></a>
-					<a href="#"><span>推荐</span></a>
-					<a href="#"><span>推荐</span></a>
-					<a href="#"><span>推荐</span></a>
-					<a href="#"><span>推荐</span></a>
-					<a href="#"><span>推荐</span></a>
-					<a href="#"><span>推荐</span></a>
-					<a href="#"><span>推荐</span></a>
-					<a href="#"><span>推荐</span></a>
-					<a href="#"><span>推荐</span></a>
-					<a href="#"><span>推荐</span></a>
-					<a href="#"><span>推荐</span></a>
-					<a href="#"><span>推荐</span></a>
-					<a href="#"><span>推荐</span></a>
-					<a href="#"><span>推荐</span></a>
-					<a href="#"><span>推荐</span></a>
-					<a href="#"><span>推荐</span></a>
-					<a href="#"><span>推荐</span></a>
-					<a href="#"><span>推荐</span></a>
-					<a href="#"><span>推荐</span></a>
-				</div>
+		</div>
+		<div class="menu">
+			<div>
+				<a href="#" class="active"><span>推荐推荐</span></a>
+				<a href="#"><span>推荐</span></a>
+				<a href="#"><span>推荐</span></a>
+				<a href="#"><span>推荐</span></a>
+				<a href="#"><span>推荐</span></a>
+				<a href="#"><span>推荐</span></a>
+				<a href="#"><span>推荐</span></a>
+				<a href="#"><span>推荐</span></a>
+				<a href="#"><span>推荐</span></a>
+				<a href="#"><span>推荐</span></a>
+				<a href="#"><span>推荐</span></a>
+				<a href="#"><span>推荐</span></a>
+				<a href="#"><span>推荐</span></a>
+				<a href="#"><span>推荐</span></a>
+				<a href="#"><span>推荐</span></a>
+				<a href="#"><span>推荐</span></a>
+				<a href="#"><span>推荐</span></a>
+				<a href="#"><span>推荐</span></a>
+				<a href="#"><span>推荐</span></a>
+				<a href="#"><span>推荐</span></a>
 			</div>
 		</div>
 		<div class="center">
+
 			<div class="rotation">
 				<div class="swiper-container">
 					<div class="swiper-wrapper">
@@ -339,7 +356,7 @@
 	<script>
 		var mySwiper = new Swiper('.swiper-container', {
 			autoplay: 5000, //可选选项，自动滑动
-			loop:true
+			loop: true
 		});
 		$(".swiper-slide div").each(function() {
 			console.log($(this).attr("data_img"))

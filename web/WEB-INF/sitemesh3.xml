@@ -16,18 +16,8 @@
     <mapping decorator="/template/decorators/main.jsp"/>
 
     <mapping>
-        <path>/a/Core*</path>
-        <decorator>/template/decorators/core.jsp</decorator>
-        <decorator>/template/decorators/main.jsp</decorator>
-    </mapping>
-    <mapping>
-        <path>/a/Base/User/edit*</path>
-        <decorator>/template/decorators/core.jsp</decorator>
-        <decorator>/template/decorators/main.jsp</decorator>
-    </mapping>
-    <mapping>
-        <path>/Core/Doc*</path>
-        <decorator>/template/decorators/core.jsp</decorator>
+        <path>/a/main*</path>
+        <decorator>/template/decorators/main_header_footer.jsp</decorator>
         <decorator>/template/decorators/main.jsp</decorator>
     </mapping>
     <!--

@@ -7,8 +7,14 @@
 		<title></title>
 		<link rel="stylesheet" href="//at.alicdn.com/t/font_8oxcgnc5gvgkqpvi.css" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/css/swiper.min.css" />
+		<link rel="stylesheet" href="assets/css/jquery.bxslider.min.css" />
 		<style>
+			.bx-wrapper {
+				margin-bottom: 0px;
+				-webkit-box-shadow: 0 0 0px #FFFFFF;
+				box-shadow: 0 0 0px #FFFFFF;
+			}
+			
 			.header .menu {
 				height: 1.8rem;
 				padding-left: 0.38rem;
@@ -36,22 +42,22 @@
 				border-bottom: 0.076rem solid #a2313e;
 				color: #a2313e;
 			}
+			
+			
 			/* 轮播 */
 			
 			.rotation {
 				background-color: #FFFFFF;
 				width: 100%;
+				overflow: hidden;
 				height: 11.3rem;
 			}
-			.swiper-slide{
-				height: 11.3rem;
-				background-color: #FFFFFF;
-			}
-			.swiper-slide >div {
-				height: 11.3rem;
-				background-size: 100% auto;
-				background-position: center center;
-				margin: 0.38rem;
+			
+			.rotation img {
+				width: 100%;
+				height: 100%;
+				padding: 0px;
+				margin: 0px;
 			}
 			/* 精品 */
 			
@@ -81,8 +87,7 @@
 				padding: 0.114rem;
 				border-right: #f4f4f4 1px solid;
 			}
-			
-			.boutique .img_box1 {
+			.boutique .img_box1{
 				background: url("https://modao.cc/uploads3/images/1018/10185792/raw_1497097383.png") no-repeat;
 				background-size: 95% auto;
 				background-position: center center;
@@ -216,20 +221,11 @@
 		</div>
 		<div class="center">
 			<div class="rotation">
-				<div class="swiper-container">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide">
-							<div data_img="https://modao.cc/uploads3/images/1016/10168511/raw_1496997638.jpeg"></div>
-						</div>
-						<div class="swiper-slide">
-							<div data_img="http://img3.imgtn.bdimg.com/it/u=2211742005,2608909966&fm=26&gp=0.jpg"></div>
-						</div>
-						<div class="swiper-slide">
-							<div data_img="http://img3.imgtn.bdimg.com/it/u=2211742005,2608909966&fm=26&gp=0.jpg"></div>
-						</div>
-					</div>
-
-				</div>
+				<ul class="bxslider">
+					<li><img src="https://modao.cc/uploads3/images/1018/10185792/raw_1497097383.png" /></li>
+					<li><img src="http://img0.imgtn.bdimg.com/it/u=1615393397,2816982935&fm=26&gp=0.jpg" /></li>
+					<li><img src="https://modao.cc/uploads3/images/1018/10185618/raw_1497095559.png" /></li>
+				</ul>
 			</div>
 			<div class="boutique">
 				<div>精品推荐</div>
@@ -334,19 +330,20 @@
 	</body>
 
 	<script language="JavaScript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-	<script type="text/javascript" src="assets/js/swiper.jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.bxslider.min.js"></script>
 	<script type="text/javascript" src="assets/js/main.js"></script>
 	<script>
-		var mySwiper = new Swiper('.swiper-container', {
-			autoplay: 5000, //可选选项，自动滑动
-			loop:true
+		
+		$(document).ready(function() {
+			$('.bxslider').bxSlider({
+				displaySlideQty: 1, //显示li的个数
+				moveSlideQty: 1, //移动li的个数  
+				captions: true, //自动控制
+				auto: true,
+				controls: false, //隐藏左右按钮
+				pager: false
+			});
 		});
-		$(".swiper-slide div").each(function() {
-			console.log($(this).attr("data_img"))
-			$(this).css("background", "url(" + $(this).attr("data_img") + ") center no-repeat");
-			$(this).css("background-size", "100% auto");
-			$(this).css("background-position", "center center");
-		})
 	</script>
 
 </html>

@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="/include/taglibs.jsp" %>
 <html>
 
 <head>
@@ -29,7 +30,7 @@
             padding-right: 0.38rem;
         }
 
-        .menu>div {
+        .menu > div {
             clear: both;
             overflow-x: auto;
             overflow-y: hidden;
@@ -53,6 +54,7 @@
         .center {
             padding-top: 3rem;
         }
+
         /* 轮播 */
 
         .rotation {
@@ -67,11 +69,12 @@
             padding: 0.38rem;
         }
 
-        .swiper-slide>div {
+        .swiper-slide > div {
             height: 100%;
             background-size: 100% auto;
             background-position: center center;
         }
+
         /* 精品 */
 
         .boutique {
@@ -81,7 +84,7 @@
             padding-bottom: 0.38rem;
         }
 
-        .boutique>div:first-child {
+        .boutique > div:first-child {
             text-align: center;
             padding-top: 10px;
             padding-bottom: 10px;
@@ -108,7 +111,7 @@
             background-position: center center;
         }
 
-        .boutique .img_box1>span {
+        .boutique .img_box1 > span {
             display: table-cell;
             vertical-align: middle;
         }
@@ -120,7 +123,7 @@
             padding: 0.114rem;
         }
 
-        .boutique .img_box2>div {
+        .boutique .img_box2 > div {
             width: 100%;
             height: 50%;
             background: url("https://modao.cc/uploads3/images/1018/10185792/raw_1497097383.png") no-repeat;
@@ -128,14 +131,15 @@
             background-position: center center;
         }
 
-        .boutique .img_box2>div:first-child {
+        .boutique .img_box2 > div:first-child {
             border-bottom: #f4f4f4 1px solid;
         }
 
-        .boutique .img_box2>div>span {
+        .boutique .img_box2 > div > span {
             display: table-cell;
             vertical-align: middle;
         }
+
         /*人气推荐*/
 
         .ranking {
@@ -144,7 +148,7 @@
             font-size: 0.684rem;
         }
 
-        .ranking>div:first-child {
+        .ranking > div:first-child {
             text-align: center;
             padding-top: 10px;
             padding-bottom: 10px;
@@ -162,7 +166,7 @@
             height: 100%;
         }
 
-        .ranking .row .left>div {
+        .ranking .row .left > div {
             height: 4.9rem;
             background: url("https://modao.cc/uploads3/images/1016/10168511/raw_1496997638.jpeg") no-repeat;
             background-size: 100% auto;
@@ -176,14 +180,14 @@
             padding: 0.38rem;
         }
 
-        .ranking .row .right>p:first-child {
+        .ranking .row .right > p:first-child {
             font-size: 0.912rem;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
         }
 
-        .ranking .row .right>p:last-child {
+        .ranking .row .right > p:last-child {
             color: #666666;
             display: -webkit-box;
             -webkit-box-orient: vertical;
@@ -227,15 +231,11 @@
     <div class="rotation">
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div data_img="https://modao.cc/uploads3/images/1016/10168511/raw_1496997638.jpeg"></div>
-                </div>
-                <div class="swiper-slide">
-                    <div data_img="http://img3.imgtn.bdimg.com/it/u=2211742005,2608909966&fm=26&gp=0.jpg"></div>
-                </div>
-                <div class="swiper-slide">
-                    <div data_img="http://img3.imgtn.bdimg.com/it/u=2211742005,2608909966&fm=26&gp=0.jpg"></div>
-                </div>
+                <c:forEach items="${obj.swiper}" var="row" varStatus="i">
+                    <div class="swiper-slide">
+                        <div data_img="${row.url}" data_id="${row.goods_id}"></div>
+                    </div>
+                </c:forEach>
             </div>
 
         </div>

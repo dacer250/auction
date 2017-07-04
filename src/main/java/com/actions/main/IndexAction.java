@@ -20,6 +20,8 @@ public class IndexAction extends BaseAction {
     public String show(){
         Map map = new HashMap();
         map.put("swiper", getService().getSwiper());
+        map.put("boutique", getService().getBoutique());
+        map.put("ranking", getService().getRanking());
         setObj(map);
         return render("show");
     }

@@ -81,7 +81,7 @@
             margin-top: 0.38rem;
             background-color: #FFFFFF;
             font-size: 0.684rem;
-            padding-bottom: 0.38rem;
+            padding: 0.38rem;
         }
 
         .boutique > div:first-child {
@@ -244,11 +244,19 @@
         <div>精品推荐</div>
         <div>
             <div>
-                <div class="img_box1">
-                </div>
+                <c:if test="${fn:length(obj.boutique) > 0}">
+                    <div class="img_box1" data_img="${obj.boutique.get(0).get("url")}"
+                         data_id="${obj.boutique.get(0).get("goods_id")}"></div>
+                </c:if>
                 <div class="img_box2">
-                    <div></div>
-                    <div></div>
+                    <c:if test="${fn:length(obj.boutique) > 1}">
+                        <div data_img="${obj.boutique.get(1).get("url")}"
+                             data_id="${obj.boutique.get(1).get("goods_id")}"></div>
+                    </c:if>
+                    <c:if test="${fn:length(obj.boutique) > 2}">
+                        <div data_img="${obj.boutique.get(2).get("url")}"
+                             data_id="${obj.boutique.get(2).get("goods_id")}"></div>
+                    </c:if>
                 </div>
             </div>
         </div>
@@ -257,56 +265,18 @@
     <div class="ranking">
         <div>人气推荐</div>
         <div class="list">
-            <div class="row">
-                <div class="left">
-                    <div></div>
+            <c:forEach items="${obj.ranking}" var="row" varStatus="i">
+                <div class="row">
+                    <div class="left">
+                        <div data_img="${row.url}"></div>
+                    </div>
+                    <div class="right">
+                        <p>${row.name}</p>
+                        <p>${row["short"]}</p>
+                    </div>
+                    <div class="clear"></div>
                 </div>
-                <div class="right">
-                    <p>清代和田白玉香薰清代和田白玉香薰</p>
-                    <p>清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰</p>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div class="row">
-                <div class="left">
-                    <div></div>
-                </div>
-                <div class="right">
-                    <p>清代和田白玉香薰清代和田白玉香薰</p>
-                    <p>清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰</p>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div class="row">
-                <div class="left">
-                    <div></div>
-                </div>
-                <div class="right">
-                    <p>清代和田白玉香薰清代和田白玉香薰</p>
-                    <p>清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰</p>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div class="row">
-                <div class="left">
-                    <div></div>
-                </div>
-                <div class="right">
-                    <p>清代和田白玉香薰清代和田白玉香薰</p>
-                    <p>清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰</p>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div class="row">
-                <div class="left">
-                    <div></div>
-                </div>
-                <div class="right">
-                    <p>清代和田白玉香薰清代和田白玉香薰</p>
-                    <p>清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰清代和田白玉香薰</p>
-                </div>
-                <div class="clear"></div>
-            </div>
+            </c:forEach>
         </div>
         <div class="clear"></div>
     </div>
@@ -318,12 +288,12 @@
             autoplay: 5000, //可选选项，自动滑动
             loop: true
         });
-        $(".swiper-slide div").each(function () {
+        $("[data_img]").each(function () {
             console.log($(this).attr("data_img"))
             $(this).css("background", "url(" + $(this).attr("data_img") + ") center no-repeat");
             $(this).css("background-size", "100% auto");
             $(this).css("background-position", "center center");
-        })
+        });
     </script>
 </myfooter>
 </body>

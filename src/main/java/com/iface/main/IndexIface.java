@@ -8,5 +8,21 @@ import java.util.Map;
  */
 public interface IndexIface {
 
+    /**
+     * 首页轮播
+     * @return
+     */
     public List<Map<String, Object>> getSwiper();
+
+    /**
+     * 精品推荐
+     * @return
+     */
+    public List<Map<String, Object>> getBoutique();
+
+    /**
+     * 人气推荐
+     * @return
+     */
+    public List<Map<String, Object>> getRanking();
 }

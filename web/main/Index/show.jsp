@@ -206,26 +206,10 @@
 
     <div class="menu">
         <div>
-            <a href="#" class="active"><span>推荐推荐</span></a>
-            <a href="#"><span>推荐</span></a>
-            <a href="#"><span>推荐</span></a>
-            <a href="#"><span>推荐</span></a>
-            <a href="#"><span>推荐</span></a>
-            <a href="#"><span>推荐</span></a>
-            <a href="#"><span>推荐</span></a>
-            <a href="#"><span>推荐</span></a>
-            <a href="#"><span>推荐</span></a>
-            <a href="#"><span>推荐</span></a>
-            <a href="#"><span>推荐</span></a>
-            <a href="#"><span>推荐</span></a>
-            <a href="#"><span>推荐</span></a>
-            <a href="#"><span>推荐</span></a>
-            <a href="#"><span>推荐</span></a>
-            <a href="#"><span>推荐</span></a>
-            <a href="#"><span>推荐</span></a>
-            <a href="#"><span>推荐</span></a>
-            <a href="#"><span>推荐</span></a>
-            <a href="#"><span>推荐</span></a>
+            <%--<a href="#" class="active"><span>推荐推荐</span></a>--%>
+            <c:forEach items="${obj.classinfo}" var="row" varStatus="i">
+                <a href="${row.id}" ><span>${row.class_name}</span></a>
+            </c:forEach>
         </div>
     </div>
     <div class="rotation">
@@ -294,6 +278,7 @@
             $(this).css("background-size", "100% auto");
             $(this).css("background-position", "center center");
         });
+        $(".menu a").eq(0).addClass("active")
     </script>
 </myfooter>
 </body>

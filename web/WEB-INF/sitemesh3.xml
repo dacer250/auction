@@ -16,8 +16,15 @@
     <mapping decorator="/template/decorators/main.jsp"/>
 
     <mapping>
+        <path>/a/main/Info*</path>
+        <decorator>/template/decorators/main_footer.jsp</decorator>
+        <decorator>/template/decorators/main.jsp</decorator>
+    </mapping>
+
+    <mapping>
         <path>/a/main*</path>
-        <decorator>/template/decorators/main_header_footer.jsp</decorator>
+        <decorator>/template/decorators/main_header.jsp</decorator>
+        <decorator>/template/decorators/main_footer.jsp</decorator>
         <decorator>/template/decorators/main.jsp</decorator>
     </mapping>
     <!--

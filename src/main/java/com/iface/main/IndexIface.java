@@ -25,4 +25,11 @@ public interface IndexIface {
      * @return
      */
     public List<Map<String, Object>> getRanking();
+
+
+    /**
+     * 获得一级菜单信息
+     * @return
+     */
+    public List<Map<String, Object>> getClassInfo();
 }

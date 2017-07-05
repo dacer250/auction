@@ -14,17 +14,6 @@
 </head>
 
 <body>
-<div class="header">
-    <div class="search">
-        <div>
-            <i class="icon iconfont icon-search"></i>
-            <input type="text"/>
-        </div>
-        <div>
-            <a href="index.html">搜索</a>
-        </div>
-    </div>
-</div>
 <sitemesh:write property='body'>Body goes here. Blah blah blah.</sitemesh:write>
 <div class="footer">
     <div>

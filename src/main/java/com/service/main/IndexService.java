@@ -51,4 +51,9 @@ public class IndexService extends BaseService implements IndexIface {
                 "GROUP BY gi.id");
     }
 
+    @Override
+    public List<Map<String, Object>> getClassInfo() {
+        return queryForList("SELECT * FROM class_info c WHERE c.`father_class` = 0 ORDER BY c.`sort`");
+    }
+
 }

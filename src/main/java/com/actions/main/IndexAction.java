@@ -22,6 +22,7 @@ public class IndexAction extends BaseAction {
         map.put("swiper", getService().getSwiper());
         map.put("boutique", getService().getBoutique());
         map.put("ranking", getService().getRanking());
+        map.put("classinfo", getService().getClassInfo());
         setObj(map);
         return render("show");
     }

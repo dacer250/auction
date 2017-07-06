@@ -4,12 +4,6 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title></title>
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_8oxcgnc5gvgkqpvi.css"/>
-    <link rel="stylesheet" href="/template/css/main.css"/>
-    <link rel="stylesheet" href="/template/css/swiper.min.css"/>
     <sitemesh:write property='head'/>
 </head>
 
@@ -18,21 +12,25 @@
 <div class="footer">
     <div>
         <ul>
-            <li class="active">
-                <div><i class="iconfont icon-shouye-copy-copy-copy"></i>
-                </div>
-                <div><span>首页</span></div>
-            </li>
-            <li>
-                <div><i class="iconfont icon-comiiszixun"></i></div>
-                <div><span>资讯</span></div>
-            </li>
-            <li>
-                <a href="classify.html">
+            <a href="/a/main/Index/show">
+                <li>
+                    <div><i class="iconfont icon-shouye-copy-copy-copy"></i>
+                    </div>
+                    <div><span>首页</span></div>
+                </li>
+            </a>
+            <a href="/a/main/Info/show">
+                <li>
+                    <div><i class="iconfont icon-comiiszixun"></i></div>
+                    <div><span>资讯</span></div>
+                </li>
+            </a>
+            <a href="/a/main/Classify/show">
+                <li>
                     <div><i class="iconfont icon-tubiao3"></i></div>
                     <div><span>分类</span></div>
-                </a>
-            </li>
+                </li>
+            </a>
             <li>
                 <div><i class="iconfont icon-gongsi"></i></div>
                 <div><span>公司简介</span></div>
@@ -47,5 +45,16 @@
 </body>
 <myfooter>
     <sitemesh:write property='myfooter'></sitemesh:write>
+    <script type="text/javascript">
+        if (window.location.href.indexOf("Index") > -1) {
+            $(".footer li").eq(0).addClass("active")
+        }
+        if (window.location.href.indexOf("Info") > -1) {
+            $(".footer li").eq(1).addClass("active")
+        }
+        if (window.location.href.indexOf("Classify") > -1) {
+            $(".footer li").eq(2).addClass("active")
+        }
+    </script>
 </myfooter>
 </html>

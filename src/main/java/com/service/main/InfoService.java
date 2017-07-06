@@ -10,10 +10,10 @@ import java.util.List;
  */
 public class InfoService extends BaseService implements InfoIface {
     @Override
-    public List getList(int rows) {
+    public List getList(int pn) {
         int cols = 0;
-        if (rows > 0) {
-            cols = rows * 10;
+        if (pn > 0) {
+            cols = pn * 10;
         }
         return queryForList("SELECT * FROM information i WHERE i.`type` = 1 LIMIT " + cols + ",10");
     }

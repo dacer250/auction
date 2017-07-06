@@ -7,14 +7,14 @@
 
 
 
-    <servlet>
+    <!--<servlet>
         <servlet-name>WxServlet</servlet-name>
         <servlet-class>com.filter.WxServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>WxServlet</servlet-name>
         <url-pattern>/wx</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>-->
 
 
 

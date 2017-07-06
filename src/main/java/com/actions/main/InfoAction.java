@@ -21,6 +21,6 @@ public class InfoAction extends BaseAction {
     }
 
     public String list_ajax() {
-        return json(getService().getList(Integer.valueOf(getO().get("rows").toString())));
+        return json(getService().getList(Integer.valueOf(getO().get("pn").toString())));
     }
 }

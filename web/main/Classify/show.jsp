@@ -117,18 +117,7 @@
                     <div class="img"></div>
                     <p>字画字画字画字画字画</p>
                 </div>
-                <div class="col">
-                    <div class="img"></div>
-                    <p>abc</p>
-                </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    <div class="img"></div>
-                    <p>字画字画字画字画字画</p>
-                </div>
-            </div>
-
         </div>
     </div>
 </div>
@@ -176,19 +165,20 @@
                     url: "list_ajax?o['pn']=" + num,
                     dataType: "json",
                     success: function (result) {
-                        for (i = 0; i < result.length; i++) {
-                            h = '<div class="row">' +
-                                '<div>' +
-                                '<img src="' + result[0].title_img + '">' +
-                                '</div>' +
-                                '<div>' +
-                                '<p>' + result[0].title + '</p>' +
-                                '<p>' + result[0].create_date + '</p>' +
-                                '</div>' +
+                        console.log(result)
+                        row = $(".list").find(".row");
+
+                        for(i=0;i<result.length;i++){
+                            data = result.get(i)
+                            html =
+                                '<div class="col">' +
+                                '<div class="img" style="background: url(\''+data.url+'\') no-repeat;background-size: 100% auto;background-position: center center;"></div>' +
+                                '<p>'+data.name+'</p>' +
                                 '</div>';
-                            html = $(".list").html() + h;
-                            $(".list").html(html);
+                            row.html(row.html() + html);
                         }
+
+
                     }
                 });
             }

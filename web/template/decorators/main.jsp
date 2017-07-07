@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title></title>
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_8oxcgnc5gvgkqpvi.css"/>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_yid3o2gx8s5dbo6r.css"/>
     <link rel="stylesheet" href="/template/css/main.css"/>
 
     <sitemesh:write property='head'/>

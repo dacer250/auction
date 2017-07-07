@@ -23,4 +23,10 @@ public class InfoAction extends BaseAction {
     public String list_ajax() {
         return json(getService().getList(Integer.valueOf(getO().get("pn").toString())));
     }
+
+    public String content() {
+
+        return render("content");
+    }
+
 }

@@ -19,10 +19,14 @@
             height: 100%;
         }
 
+        .center {
+            background-color: #ffffff;
+        }
+
         .center .left {
             height: 100%;
             width: 4.56rem;
-            padding-bottom: 2.3rem;
+            /*padding-bottom: 2.3rem;*/
             overflow: auto;
             float: left;
             border-right: 1px solid #f0f0f0;
@@ -70,7 +74,6 @@
 
         .center .right .row {
             margin-top: 0.684rem;
-            height: 4.5rem;
         }
 
         .center .right .row .col {
@@ -113,10 +116,6 @@
         <div class="title"><span>——</span><span></span>分类<span>——</span></div>
         <div class="list">
             <div class="row">
-                <div class="col">
-                    <div class="img"></div>
-                    <p>字画字画字画字画字画</p>
-                </div>
             </div>
         </div>
     </div>
@@ -143,16 +142,10 @@
 
             //建立加载判断函数
             function checkload() {
-                var srollPos = $(window).scrollTop(); //滚动条距离顶部的高度
-                var windowHeight = $(window).height(); //窗口的高度
-                var dbHiht = $("body").height(); //整个页面文件的高度
+                var srollPos = $(".right").scrollTop(); //滚动条距离顶部的高度
+                var windowHeight = $(".right").height(); //窗口的高度
+                var dbHiht = $(".row").height(); //整个页面文件的高度
 
-                /*s = setTimeout(function () {
-                 if ((windowHeight + srollPos) >= (dbHiht) && num != maxnum) {
-                 LoadList();
-                 num++; //计数器+1
-                 }
-                 }, 500);*/
                 if ((windowHeight + srollPos) >= (dbHiht) && num != maxnum) {
                     LoadList();
                     num++; //计数器+1
@@ -162,23 +155,22 @@
             //创建ajax加载函数，并设置变量C，用于输入调用的页面频道,请根据实际情况判断使用，非必要。
             function LoadList() {
                 $.ajax({
-                    url: "list_ajax?o['pn']=" + num,
+                    url: "list_ajax?id=${id}&o['pn']=" + num,
                     dataType: "json",
                     success: function (result) {
-                        console.log(result)
-                        row = $(".list").find(".row");
-
-                        for(i=0;i<result.length;i++){
-                            data = result.get(i)
+                        console.log(result);
+                        for (i = 0; i < result.length; i++) {
+                            data = result[i];
+                            console.log(data);
                             html =
+                                '<a href="getContent?id=' + data.id + '">' +
                                 '<div class="col">' +
-                                '<div class="img" style="background: url(\''+data.url+'\') no-repeat;background-size: 100% auto;background-position: center center;"></div>' +
-                                '<p>'+data.name+'</p>' +
-                                '</div>';
-                            row.html(row.html() + html);
+                                '<div class="img" style="background: url(\'' + data.url + '\') no-repeat;background-size: 100% auto;background-position: center center;"></div>' +
+                                '<p>' + data.name + '</p>' +
+                                '</div></a>';
+                            html = $(".list .row").html() + html;
+                            $(".list .row").html(html);
                         }
-
-
                     }
                 });
             }

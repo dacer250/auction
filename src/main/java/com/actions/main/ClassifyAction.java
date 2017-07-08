@@ -19,7 +19,12 @@ public class ClassifyAction extends BaseAction {
 
     public String show() {
         Map map = new HashMap();
-        setId(getId());
+        if (getId() != null && !getId().equals("")) {
+            setId(getId());
+        } else {
+            setId("1");
+        }
+
         map.put("classinfoList", getService().getClassInfoList());
         setObj(map);
         return render("show");
@@ -29,4 +34,8 @@ public class ClassifyAction extends BaseAction {
         return json(getService().getGoodsList(getId(), Integer.valueOf(getO().get("pn").toString())));
     }
 
+    public String getContent() {
+        setObj(getService().getClassInfo(getId()));
+        return render("content");
+    }
 }

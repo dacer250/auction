@@ -17,5 +17,4 @@ public interface ClassifyIface {
     public Map getClassInfo(String id);
 
     public List<Map<String, Object>> getGoodsList(String class_id,int pn);
-
 }

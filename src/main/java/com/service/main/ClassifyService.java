@@ -3,6 +3,7 @@ package com.service.main;
 import com.frame.base.BaseService;
 import com.iface.main.ClassifyIface;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -17,7 +18,11 @@ public class ClassifyService extends BaseService implements ClassifyIface {
 
     @Override
     public Map getClassInfo(String id) {
-        return queryForMap("SELECT * FROM class_info c WHERE c.id = ?", id);
+        Map map = new HashMap();
+        map.put("obj", queryForMap("SELECT * FROM goods_info gi WHERE gi.id = ?", id));
+        map.put("img_list", queryForList("SELECT * FROM goods_info_imgs gii WHERE gii.goods_id = ? ORDER BY gii.sort", id));
+
+        return map;
     }
 
 
@@ -32,4 +37,5 @@ public class ClassifyService extends BaseService implements ClassifyIface {
                 "SELECT g.*,gii.url FROM goods_info_imgs gii LEFT JOIN goods_info g ON gii.`goods_id` = g.`id` WHERE class_id = ? ORDER BY gii.`sort` DESC\n" +
                 ") t GROUP BY id LIMIT " + cols + ",10", class_id);
     }
+
 }

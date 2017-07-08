@@ -37,8 +37,9 @@
 
         .list .row {
             width: 100%;
-            height: 13.3rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.38rem;
+            background-color: #ffffff;
+            padding: 0.38rem;
         }
 
         .list .row > div:first-child {

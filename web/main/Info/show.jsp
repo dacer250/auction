@@ -87,6 +87,18 @@
 </div>
 <myfooter>
     <script type="text/javascript">
+        function timeStamp2String(time){
+            var datetime = new Date();
+            datetime.setTime(time);
+            var year = datetime.getFullYear();
+            var month = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
+            var date = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
+            var hour = datetime.getHours()< 10 ? "0" + datetime.getHours() : datetime.getHours();
+            var minute = datetime.getMinutes()< 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
+            var second = datetime.getSeconds()< 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
+            return year + "-" + month + "-" + date+" "+hour+":"+minute+":"+second;
+        }
+
         $(document).ready(function () {
             var num = 0; //计数器初始化为0
             var maxnum = 100; //设置一共要加载几次
@@ -120,15 +132,15 @@
                     dataType: "json",
                     success: function (result) {
                         for (i = 0; i < result.length; i++) {
-                            h = '<div class="row">' +
+                            h = '<a href="content?id='+result[i].id+'"><div class="row">' +
                                 '<div>' +
-                                '<img src="' + result[0].title_img + '">' +
+                                '<img src="' + result[i].title_img + '">' +
                                 '</div>' +
                                 '<div>' +
-                                '<p>' + result[0].title + '</p>' +
-                                '<p>' + result[0].create_date + '</p>' +
+                                '<p>' + result[i].title + '</p>' +
+                                '<p>' + timeStamp2String(result[i].create_date.time) + '</p>' +
                                 '</div>' +
-                                '</div>';
+                                '</div></a>';
                             html = $(".list").html() + h;
                             $(".list").html(html);
                         }

@@ -17,13 +17,11 @@ public class InfoService extends BaseService implements InfoIface {
         if (pn > 0) {
             cols = pn * 10;
         }
-        return queryForList("SELECT * FROM information i WHERE i.`type` = 1 LIMIT " + cols + ",10");
+        return queryForList("SELECT * FROM information i WHERE i.`type` = 1 ORDER BY i.`create_date` DESC LIMIT " + cols + ",10");
     }
 
     @Override
     public Map content(String id) {
-        Map map = new HashMap();
-
-        return map;
+        return queryForMap("SELECT * FROM `information` i WHERE i.`id` = ?", id);
     }
 }

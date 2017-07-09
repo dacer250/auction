@@ -111,9 +111,9 @@
             <div>
                 <ul>
                     <c:forEach items="${obj.img_list}" var="row" varStatus="i">
-                    <li>
-                        <div style="background: url('${row.url}') no-repeat;background-size: 100% auto;background-position: center center;"></div>
-                    </li>
+                        <li>
+                            <div data_img="${row.url}"></div>
+                        </li>
                     </c:forEach>
                 </ul>
             </div>
@@ -123,25 +123,66 @@
     <div class="detail">
         <div>拍品详情</div>
         <div>
+            ${obj.obj.synopsis_html}
         </div>
     </div>
 </div>
 <myfooter>
     <script type="text/javascript">
         $(document).ready(function () {
-            $(".show").css("background", $("li").eq(0).find("div").css("background"));
-            $(".show").css("background-size", "100% auto");
+
+            $(".show").css("background", "url('" + $("li").eq(0).find("div").attr("data_img") + "') no-repeat");
+            getImageWidth($("li").eq(0).find("div").attr("data_img"),$(".show"),function (w,h,obj) {
+                if (w >= h) {
+                    $(obj).css("background-size", "100% auto");
+                } else {
+                    $(obj).css("background-size", "auto 100%");
+                }
+            })
+
+
             $(".show").css("background-position", "center center");
 
             $("li").each(function () {
+
+                $(this).find("div").eq(0).css("background", "url('" + $(this).find("div").eq(0).attr("data_img") + "') no-repeat");
+                getImageWidth($(this).find("div").eq(0).attr("data_img"),this, function (w, h,obj) {
+                    if(w>=h) {
+                        $(obj).find("div").eq(0).css("background-size", "100% auto");
+                    }else{
+                        $(obj).find("div").eq(0).css("background-size", "auto 100%");
+                    }
+                });
+                $(this).find("div").eq(0).css("background-position", "center center");
+
                 $(this).find("div").eq(0).click(function () {
-                    console.log("123");
-                    $(".show").css("background", $(this).css("background"));
-                    $(".show").css("background-size", "100% auto");
+                    $(".show").css("background", "url('" + $(this).attr("data_img") + "') no-repeat");
+                    getImageWidth($(this).attr("data_img"), $(".show"), function (w, h, obj) {
+                        if (w >= h) {
+                            $(obj).css("background-size", "100% auto");
+                        } else {
+                            $(obj).css("background-size", "auto 100%");
+                        }
+                    });
                     $(".show").css("background-position", "center center");
                 });
             });
         });
+
+        function getImageWidth(url,obj, callback) {
+            var img = new Image();
+            img.src = url;
+
+            // 如果图片被缓存，则直接返回缓存数据
+            if (img.complete) {
+                callback(img.width, img.height,obj);
+            } else {
+                // 完全加载完毕的事件
+                img.onload = function () {
+                    callback(img.width, img.height,obj);
+                }
+            }
+        }
     </script>
 </myfooter>
 </body>

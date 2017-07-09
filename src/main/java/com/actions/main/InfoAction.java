@@ -25,7 +25,7 @@ public class InfoAction extends BaseAction {
     }
 
     public String content() {
-
+        setObj(getService().content(getId()));
         return render("content");
     }
 

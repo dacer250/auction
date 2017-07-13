@@ -27,8 +27,7 @@ public class FileUploadController {
      */
     @RequestMapping(value = "/uploadFile", method = RequestMethod.POST, produces = "application/json;charset=utf8")
     @ResponseBody
-    public FileMsg uploadFileHandler(@RequestParam("file") MultipartFile file) throws IOException {
-
+    public FileMsg uploadFileHandler(@RequestParam("file") MultipartFile file, @RequestParam("g_id") String key) throws IOException {
 
         if (!file.isEmpty()) {
             InputStream in = null;
@@ -44,7 +43,7 @@ public class FileUploadController {
                 if (!dir.exists())
                     dir.mkdirs();
 
-                String fileName = SystemUtil.randomUUID()  +
+                String fileName = SystemUtil.randomUUID() +
                         file.getOriginalFilename().substring(file.getOriginalFilename().indexOf("."), file.getOriginalFilename().length());
 
                 File serverFile = new File(dir.getAbsolutePath() + File.separator + fileName);

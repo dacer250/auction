@@ -25,6 +25,13 @@
     </mapping>
 
 
+
+    <mapping>
+        <path>/a/admin*</path>
+        <decorator>/template/decorators/admin.jsp</decorator>
+    </mapping>
+
+
     <!-- 增加自定义标签，目前只提供了一个 myfooter -->
     <content-processor>
         <tag-rule-bundle class="com.filter.MyExportTagToContentRule" />

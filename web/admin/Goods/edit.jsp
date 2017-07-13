@@ -13,36 +13,84 @@
     <script language="JavaScript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="/template/js/jquery.Huploadify.js"></script>
 
-    <script type="text/javascript">
-        $(function(){
-            $('#upload').Huploadify({
-                auto:true,
-                fileTypeExts:'*.jpg;*.png;*.exe',
-                multi:true,
-                formData:{key:123456,key2:'vvvv'},
-                fileSizeLimit:9999,
-                showUploadedPercent:true,//是否实时显示上传的百分比，如20%
-                showUploadedSize:true,
-                removeTimeout:9999999,
-                uploader:'/b/uploadFile',
-                onUploadStart:function(){
-                    //alert('开始上传');
-                },
-                onInit:function(){
-                    //alert('初始化');
-                },
-                onUploadComplete:function(){
-                    //alert('上传完成');
-                },
-                onDelete:function(file){
-                    console.log('删除的文件：'+file);
-                    console.log(file);
-                }
-            });
-        });
-    </script>
 </head>
 <body>
+
+<!-- page content -->
+<div class="right_col" role="main">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>${obj.obj.name}
+                </h2>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="x_content">
+                <br>
+                <form class="form-horizontal form-label-left">
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">展品名称 </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input name="o['name']" value="${obj.obj.name}" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">文字描述 </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input name="o['short']" value="${obj.obj['short']}" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">推荐类型</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <div class="checkbox">
+                                <label>
+                                    <div class="icheckbox_flat-green" style="position: relative;"><input type="checkbox"
+                                                                                                         checked="checked"
+                                                                                                         class="flat"
+                                                                                                         style="position: absolute; opacity: 0;">
+                                        <ins class="iCheck-helper"
+                                             style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                    </div>
+                                    首页轮播
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <div class="icheckbox_flat-green" style="position: relative;"><input type="checkbox"
+                                                                                                         class="flat"
+                                                                                                         style="position: absolute; opacity: 0;">
+                                        <ins class="iCheck-helper"
+                                             style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                    </div>
+                                    精品推荐
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <div class="icheckbox_flat-green" style="position: relative;"><input type="checkbox"
+                                                                                                         class="flat"
+                                                                                                         style="position: absolute; opacity: 0;">
+                                        <ins class="iCheck-helper"
+                                             style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                    </div>
+                                    人气推荐
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <div id="upload"></div>
 </body>
 </html>

@@ -42,6 +42,17 @@
                             <input name="o['short']" value="${obj.obj['short']}" type="text" class="form-control">
                         </div>
                     </div>
+
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">详细内容 </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+
+                            <!-- 加载编辑器的容器 -->
+                            <script id="container" name="content" type="text/plain"></script>
+
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">推荐类型</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
@@ -83,7 +94,35 @@
                         </div>
                     </div>
 
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">展示排序 </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
 
+                            <!-- 加载编辑器的容器 -->
+                            <script id="container" name="content" type="text/plain"></script>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">展示状态 </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+
+                            <!-- 加载编辑器的容器 -->
+                            <script id="container" name="content" type="text/plain"></script>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">图片管理 </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+
+                            <!-- 加载编辑器的容器 -->
+                            <script id="container" name="content" type="text/plain"></script>
+
+                        </div>
+                    </div>
                 </form>
             </div>
 
@@ -92,5 +131,17 @@
 </div>
 
 <div id="upload"></div>
+
+<myfooter>
+
+    <!-- 配置文件 -->
+    <script type="text/javascript" src="/template/js/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="/template/js/ueditor.all.min.js"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        var ue = UE.getEditor('container');
+    </script>
+</myfooter>
 </body>
 </html>

@@ -126,6 +126,8 @@
 
 <!-- Custom Theme Scripts -->
 <script src="/template/js/custom.min.js"></script>
+
+<sitemesh:write property='myfooter'></sitemesh:write>
 </body>
 
 

@@ -172,7 +172,7 @@ public class JdbcDao extends JdbcTemplate {
         return this.update(sb.toString(), valueList.toArray());
     }
 
-    public int saveOrUpdateBackId(Map<String, Object> o, String tableName) {
+    public int saveBackId(Map<String, Object> o, String tableName) {
 
         Object id = o.get("id");
         id = id != null ? id : o.get("ID");

@@ -1,11 +1,12 @@
 package com.service.admin;
 
-import com.frame.base.BaseAction;
 import com.frame.base.BaseService;
 import com.frame.bean.PageBean;
 import com.iface.admin.GoodsIface;
 
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -25,10 +26,40 @@ public class GoodsService extends BaseService implements GoodsIface {
 
     @Override
     public Map edit(String id) {
+        return queryForMap("SELECT * FROM goods_info g WHERE g.id = ?", id);
+    }
+
+    @Override
+    public int update(Map map) {
+        return saveOrUpdate(map, "goods_info");
+    }
+
+    public List imgList(String id) {
+        return queryForList("SELECT * FROM goods_info_imgs gi WHERE gi.goods_id = ? ORDER BY sort DESC", id);
+    }
+
+    @Override
+    public void addImg(String id, String url) {
         Map map = new HashMap();
-        map.put("obj", queryForMap("SELECT * FROM goods_info g WHERE g.id = ?", id));
-        map.put("img_list", queryForList("SELECT * FROM goods_info_imgs gi WHERE gi.goods_id = ?", id));
-        return map;
+        map.put("create_date", new Date());
+        map.put("goods_id", id);
+        map.put("url", url);
+        saveOrUpdate(map, "goods_info_imgs");
+    }
+
+    @Override
+    public int delImg(String id) {
+        return update("DELETE FROM goods_info_imgs WHERE id = ?", id);
+    }
+
+    @Override
+    public int sortImg(String id, String sort) {
+        return update("UPDATE goods_info_imgs SET sort = sort + ? WHERE id = ?", sort, id);
+    }
+
+    @Override
+    public List getClassInfo() {
+        return queryForList("SELECT * FROM class_info ci WHERE father_class = 0 AND type = 1 ORDER BY sort DESC");
     }
 
 }

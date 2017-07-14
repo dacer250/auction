@@ -2,11 +2,18 @@ package com.springmvc.controller;
 
 import com.frame.util.PropertiesTools;
 import com.frame.util.SystemUtil;
+import com.iface.Core.IncomeIface;
+import com.service.Core.IncomeService;
 import com.springmvc.pojo.FileMeta;
 import com.springmvc.pojo.FileMsg;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+import org.springframework.beans.factory.support.RootBeanDefinition;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+import org.springframework.web.context.support.XmlWebApplicationContext;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
@@ -27,7 +34,7 @@ public class FileUploadController {
      */
     @RequestMapping(value = "/uploadFile", method = RequestMethod.POST, produces = "application/json;charset=utf8")
     @ResponseBody
-    public FileMsg uploadFileHandler(@RequestParam("file") MultipartFile file, @RequestParam("g_id") String key) throws IOException {
+    public FileMsg uploadFileHandler(@RequestParam("file") MultipartFile file, @RequestParam("g_id") String g_id) throws IOException {
 
         if (!file.isEmpty()) {
             InputStream in = null;
@@ -60,7 +67,7 @@ public class FileUploadController {
 
                 FileMeta fileMeta = new FileMeta();
                 fileMeta.setName(fileName);
-                fileMeta.setUrl("uploadFiles" + File.separator + dateStr + File.separator + fileName);
+                fileMeta.setUrl("/uploadFiles/" + dateStr + "/" + fileName);
                 List<FileMeta> files = new ArrayList<>();
                 files.add(fileMeta);
                 FileMsg fileMsg = new FileMsg();

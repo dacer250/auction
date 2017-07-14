@@ -208,7 +208,7 @@
         <div>
             <%--<a href="#" class="active"><span>推荐推荐</span></a>--%>
             <c:forEach items="${obj.classinfo}" var="row" varStatus="i">
-                <a href="${row.id}" ><span>${row.class_name}</span></a>
+                <a href="/a/main/Classify/show?id=${row.id}"><span>${row.class_name}</span></a>
             </c:forEach>
         </div>
     </div>
@@ -249,21 +249,24 @@
         <div>人气推荐</div>
         <div class="list">
             <c:forEach items="${obj.ranking}" var="row" varStatus="i">
-                <div class="row">
-                    <div class="left">
-                        <div data_img="${row.url}"></div>
+                <a href="/a/main/Classify/getContent?id=${row.id}">
+                    <div class="row">
+                        <div class="left">
+                            <div data_img="${row.url}"></div>
+                        </div>
+                        <div class="right">
+                            <p>${row.name}</p>
+                            <p>${row["short"]}</p>
+                        </div>
+                        <div class="clear"></div>
                     </div>
-                    <div class="right">
-                        <p>${row.name}</p>
-                        <p>${row["short"]}</p>
-                    </div>
-                    <div class="clear"></div>
-                </div>
+                </a>
             </c:forEach>
         </div>
         <div class="clear"></div>
     </div>
 </div>
+<a id="go_to"></a>
 <myfooter>
     <script type="text/javascript" src="/template/js/swiper.jquery.min.js"></script>
     <script>
@@ -271,13 +274,21 @@
             autoplay: 5000, //可选选项，自动滑动
             loop: true
         });
-        $("[data_img]").each(function () {
-            console.log($(this).attr("data_img"))
-            $(this).css("background", "url(" + $(this).attr("data_img") + ") center no-repeat");
-            $(this).css("background-size", "100% auto");
-            $(this).css("background-position", "center center");
+        $(document).ready(function () {
+            $("[data_img]").each(function () {
+                $(this).css("background", "url(" + $(this).attr("data_img") + ") center no-repeat");
+                $(this).css("background-size", "100% auto");
+                $(this).css("background-position", "center center");
+            });
+            $(".menu a").eq(0).addClass("active");
+
+            $(".swiper-slide [data_img]").each(function () {
+                $(this).click(function () {
+                    $("#go_to").attr("href","/a/main/Classify/getContent?id=" + $(this).attr("data_id"));
+                    document.getElementById("go_to").click();
+                });
+            });
         });
-        $(".menu a").eq(0).addClass("active")
     </script>
 </myfooter>
 </body>

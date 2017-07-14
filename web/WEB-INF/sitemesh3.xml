@@ -1,7 +1,7 @@
 <sitemesh>
 
 
-    <mapping path="/*ajax*" exclue="true"/>
+    <mapping path="/a/*ajax*" exclue="true"/>
     <mapping path="/a/*/list_ajax*" exclue="true"/>
     <mapping path="*/include/*" exclue="true"/>
 

@@ -20,6 +20,7 @@ public class IndexService extends BaseService implements IndexIface {
                 "  LEFT JOIN goods_info g \n" +
                 "    ON gii.`goods_id` = g.`id` \n" +
                 "WHERE g.`status` & 2 = 2 \n" +
+                "AND g.`type` = 1 \n" +
                 "ORDER BY gii.`sort` DESC\n" +
                 ") GROUP BY gi.`goods_id`");
     }
@@ -34,6 +35,7 @@ public class IndexService extends BaseService implements IndexIface {
                 "  LEFT JOIN goods_info g \n" +
                 "    ON gii.`goods_id` = g.`id` \n" +
                 "WHERE g.`status` & 4 = 4 \n" +
+                "AND g.`type` = 1 \n" +
                 "ORDER BY gii.`sort` DESC\n" +
                 ") GROUP BY gi.`goods_id`");
     }
@@ -48,12 +50,13 @@ public class IndexService extends BaseService implements IndexIface {
                 "\tORDER BY gii.`sort` DESC\n" +
                 ")t ON gi.id = t.goods_id\n" +
                 "\tWHERE gi.`status` & 8 = 8\n" +
+                "AND gi.`type` = 1 \n" +
                 "GROUP BY gi.id");
     }
 
     @Override
     public List<Map<String, Object>> getClassInfo() {
-        return queryForList("SELECT * FROM class_info c WHERE c.`father_class` = 0 ORDER BY c.`sort`");
+        return queryForList("SELECT * FROM class_info c WHERE c.`father_class` = 0 AND c.`type` = 1 ORDER BY c.`sort` DESC ");
     }
 
 }

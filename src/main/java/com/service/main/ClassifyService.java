@@ -13,14 +13,14 @@ import java.util.Map;
 public class ClassifyService extends BaseService implements ClassifyIface {
     @Override
     public List<Map<String, Object>> getClassInfoList() {
-        return queryForList("SELECT * FROM class_info c WHERE c.`father_class` = 0 ORDER BY c.`sort`");
+        return queryForList("SELECT * FROM class_info c WHERE c.`father_class` = 0 ORDER BY c.`sort` DESC ");
     }
 
     @Override
     public Map getClassInfo(String id) {
         Map map = new HashMap();
         map.put("obj", queryForMap("SELECT * FROM goods_info gi WHERE gi.id = ?", id));
-        map.put("img_list", queryForList("SELECT * FROM goods_info_imgs gii WHERE gii.goods_id = ? ORDER BY gii.sort", id));
+        map.put("img_list", queryForList("SELECT * FROM goods_info_imgs gii WHERE gii.goods_id = ? ORDER BY gii.sort DESC ", id));
 
         return map;
     }

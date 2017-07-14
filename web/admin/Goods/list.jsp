@@ -36,13 +36,12 @@
                                 <input type="checkbox" id="check-all" class="flat">
                             </th>
                             <th class="column-title">名称</th>
-                            <th class="column-title">文字简介</th>
                             <th class="column-title">分类</th>
                             <th class="column-title">排序</th>
                             <th class="column-title">类型</th>
                             <th class="column-title no-link last">状态</th>
 
-                            <th class="bulk-actions" colspan="7">
+                            <th class="bulk-actions" colspan="6">
                                 批量操作
                             </th>
                         </tr>
@@ -55,7 +54,6 @@
                                     <input type="checkbox" class="flat" name="table_records">
                                 </td>
                                 <td class=" "><a href="edit?id=${row.id}">${row.name}</a></td>
-                                <td class=" ">${row['short']}</td>
                                 <td class=" ">${row.class_name}</td>
                                 <td class=" ">${row.sort}</td>
                                 <td class=" ">${row.status}</td>

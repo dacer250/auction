@@ -25,7 +25,12 @@ public class GoodsAction extends BaseAction{
     }
 
     public String edit() {
-        Map map = getService().edit(getId());
+        Map map;
+        if (getId() != null && !getId().equals("")) {
+            map = getService().edit(getId());
+        }else{
+            map = new HashMap();
+        }
         map.put("classinfo", getService().getClassInfo());
         setObj(map);
         return render("edit");
@@ -49,8 +54,13 @@ public class GoodsAction extends BaseAction{
             getO().put("type", "2");
         }
         getService().update(getO());
-        setId(getO().get("id"));
+        setId(String.valueOf(getO().get("id")));
         return edit();
+    }
+
+    public String del() {
+        getService().del(getId());
+        return list();
     }
 
     public String imgList_ajax() {

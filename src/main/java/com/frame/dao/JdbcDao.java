@@ -138,7 +138,7 @@ public class JdbcDao extends JdbcTemplate {
             sb.append(" WHERE id=? ");
             valueList.add(id);
         } else {
-            o.remove("id");
+            /*o.remove("id");
             //o.put("ID", PrimaryKeyGen.genuuid());
             sb = new StringBuffer("INSERT INTO ");
             sb.append(tableName);
@@ -167,7 +167,8 @@ public class JdbcDao extends JdbcTemplate {
             sb.append(colunmSql);
             sb.append(") VALUES (");
             sb.append(valueSql);
-            sb.append(")");
+            sb.append(")");*/
+            return saveBackId(o, tableName);
         }
         return this.update(sb.toString(), valueList.toArray());
     }

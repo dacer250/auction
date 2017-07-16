@@ -58,7 +58,7 @@
                             <select class="form-control" name="o['class_id']">
                                 <c:forEach items="${obj.classinfo}" var="row" varStatus="i">
                                     <option value="${row.id}" <c:if
-                                        test="${obj.class_id == row.id}"> selected="selected"</c:if>>${row.class_name}</option>
+                                            test="${obj.class_id == row.id}"> selected="selected"</c:if>>${row.class_name}</option>
                                 </c:forEach>
                             </select>
                         </div>
@@ -87,7 +87,10 @@
                                 <label>
                                     <c:set var="status" value="${obj.status}" scope="request"></c:set>
                                     <%
-                                        int status = (int) request.getAttribute("status");
+                                        int status = 0;
+                                        if (request.getAttribute("status") != null) {
+                                             status = Integer.valueOf(request.getAttribute("status").toString());
+                                        }
                                     %>
 
                                     <input type="checkbox" class="flat" name="o['status_s']" value="2"
@@ -148,7 +151,7 @@
 
                     <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                            <button class="btn btn-primary" type="button">返回</button>
+                            <%--<button class="btn btn-primary" type="button">返回</button>--%>
                             <button type="button" onclick="formSubmit()" class="btn btn-success">保存</button>
                         </div>
                     </div>

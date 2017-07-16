@@ -30,6 +30,13 @@ public class GoodsService extends BaseService implements GoodsIface {
     }
 
     @Override
+    public void del(String... ids) {
+        for (String id : ids) {
+            deleteById("goods_info", id);
+        }
+    }
+
+    @Override
     public int update(Map map) {
         return saveOrUpdate(map, "goods_info");
     }

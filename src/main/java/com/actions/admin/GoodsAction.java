@@ -63,6 +63,11 @@ public class GoodsAction extends BaseAction{
         return list();
     }
 
+    public String upSort() {
+        getService().upSort(getId(),getO().get("sort"));
+        return list();
+    }
+
     public String imgList_ajax() {
         return json(getService().imgList(getId()));
     }

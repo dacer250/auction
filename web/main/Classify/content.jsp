@@ -88,6 +88,7 @@
         .center .detail {
             margin-top: 0.38rem;
             background-color: #FFFFFF;
+            padding: 0.38rem;
         }
 
         .center .detail > div:first-child {

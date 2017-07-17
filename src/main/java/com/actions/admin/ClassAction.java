@@ -15,6 +15,7 @@ public class ClassAction extends BaseAction {
 
     public String list() {
         setPageBean(this.initPageBean());
+        getPageBean().setFiltermap(getF());
         getService().list(getPageBean());
         return render("list");
     }
@@ -24,9 +25,27 @@ public class ClassAction extends BaseAction {
         return render("edit");
     }
 
+    public String add() {
+        return render("edit");
+    }
+
     public String update() {
+        if (!getO().containsKey("type")) {
+            getO().put("type", "2");
+        }
+
         getService().save(getO());
-        setId(getO().get("id"));
+        setId(String.valueOf(getO().get("id")));
         return edit();
+    }
+
+    public String del() {
+        getService().del(getId());
+        return list();
+    }
+
+    public String upSort() {
+        getService().upSort(getId(),getO().get("sort"));
+        return list();
     }
 }

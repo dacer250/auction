@@ -26,4 +26,6 @@ public interface GoodsIface {
 
 
     public List getClassInfo();
+
+    public void upSort(String id, String sort);
 }

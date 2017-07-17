@@ -34,7 +34,7 @@ public class ClassifyService extends BaseService implements ClassifyIface {
         }
 
         return queryForList("SELECT * FROM (\n" +
-                "SELECT g.*,gii.url FROM goods_info_imgs gii LEFT JOIN goods_info g ON gii.`goods_id` = g.`id` WHERE class_id = ? ORDER BY gii.`sort` DESC\n" +
+                "SELECT g.*,gii.url FROM goods_info g LEFT JOIN goods_info_imgs gii ON gii.`goods_id` = g.`id` WHERE class_id = ? ORDER BY gii.`sort` DESC\n" +
                 ") t GROUP BY id LIMIT " + cols + ",10", class_id);
     }
 

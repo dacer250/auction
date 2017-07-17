@@ -69,4 +69,9 @@ public class GoodsService extends BaseService implements GoodsIface {
         return queryForList("SELECT * FROM class_info ci WHERE father_class = 0 AND type = 1 ORDER BY sort DESC");
     }
 
+    @Override
+    public void upSort(String id, String sort) {
+        update("UPDATE goods_info SET sort = sort + ? WHERE id = ?", sort, id);
+    }
+
 }

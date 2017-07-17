@@ -68,7 +68,11 @@
                                             <td class=" ">${row.sort}</td>
                                             <td class=" ">${row.status}</td>
                                             <td class=" ">${row.type}</td>
-                                            <td class=" "><a href="del?id=${row.id}" type="button" class="btn btn-success btn-xs">删除</a></td>
+                                            <td class=" ">
+                                                <a href="upSort?id=${row.id}&o['sort']=+1&pageno=${pageno}"><i class="fa fa-arrow-up"></i>上升</a>
+                                                <a href="upSort?id=${row.id}&o['sort']=-1&pageno=${pageno}"><i class="fa fa-arrow-down"></i>下降</a>
+                                                <a href="del?id=${row.id}&pageno=${pageno}" type="button" class="btn btn-success btn-xs">删除</a>
+                                            </td>
                                         </tr>
                                     </c:forEach>
                                     </tbody>

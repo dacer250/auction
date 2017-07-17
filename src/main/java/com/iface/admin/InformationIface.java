@@ -15,4 +15,5 @@ public interface InformationIface {
     public void save(Map map);
 
     public void del(String id);
+    public void upSort(String id, String sort);
 }

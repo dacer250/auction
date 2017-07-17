@@ -39,10 +39,8 @@
                             <th class="column-title">标题</th>
                             <th class="column-title">创建时间</th>
                             <th class="column-title no-link last">状态</th>
+                            <th class="column-title">操作</th>
 
-                            <th class="bulk-actions" colspan="6">
-                                批量操作
-                            </th>
                         </tr>
                         </thead>
 
@@ -55,6 +53,11 @@
                                 <td class=" "><a href="edit?id=${row.id}">${row.title}</a></td>
                                 <td class=" ">${row.create_date}</td>
                                 <td class=" ">${row.type}</td>
+                                <td class=" ">
+                                    <a href="upSort?id=${row.id}&o['sort']=+1&pageno=${pageno}"><i class="fa fa-arrow-up"></i>上升</a>
+                                    <a href="upSort?id=${row.id}&o['sort']=-1&pageno=${pageno}"><i class="fa fa-arrow-down"></i>下降</a>
+                                    <a href="del?id=${row.id}&pageno=${pageno}" type="button" class="btn btn-success btn-xs">删除</a>
+                                </td>
                             </tr>
                         </c:forEach>
                         </tbody>

@@ -29,4 +29,14 @@ public class InformationAction extends BaseAction {
         setId(getO().get("id"));
         return edit();
     }
+
+    public String del() {
+        getService().del(getId());
+        return list();
+    }
+
+    public String upSort() {
+        getService().upSort(getId(),getO().get("sort"));
+        return list();
+    }
 }

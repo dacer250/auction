@@ -28,7 +28,22 @@
             </div>
 
             <div class="x_content">
-                <div class="table-responsive">
+                <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                    <form action="list" method="post">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <a href="add" type="button" class="btn btn-success btn-sm">添加</a>
+                            </div>
+                            <div class="col-sm-6">
+                                分类名称
+                                <label>
+                                    <input type="search" class="form-control input-sm" placeholder=""
+                                           aria-controls="datatable" name="f['class_name']" value="${f.class_name}">
+                                </label>
+                                <button type="submit" class="btn btn-success btn-sm">查找</button>
+                            </div>
+                        </div>
+                    </form>
                     <table class="table table-striped jambo_table bulk_action">
                         <thead>
                         <tr class="headings">
@@ -37,11 +52,9 @@
                             </th>
                             <th class="column-title">分类名称</th>
                             <th class="column-title">排序</th>
-                            <th class="column-title no-link last">状态</th>
+                            <th class="column-title">状态</th>
+                            <th class="column-title">操作</th>
 
-                            <th class="bulk-actions" colspan="6">
-                                批量操作
-                            </th>
                         </tr>
                         </thead>
 
@@ -54,6 +67,11 @@
                                 <td class=" "><a href="edit?id=${row.id}">${row.class_name}</a></td>
                                 <td class=" ">${row.sort}</td>
                                 <td class=" ">${row.type}</td>
+                                <td class=" ">
+                                    <a href="upSort?id=${row.id}&o['sort']=+1&pageno=${pageno}"><i class="fa fa-arrow-up"></i>上升</a>
+                                    <a href="upSort?id=${row.id}&o['sort']=-1&pageno=${pageno}"><i class="fa fa-arrow-down"></i>下降</a>
+                                    <a href="del?id=${row.id}&pageno=${pageno}" type="button" class="btn btn-success btn-xs" >删除</a>
+                                </td>
                             </tr>
                         </c:forEach>
                         </tbody>

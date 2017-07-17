@@ -33,8 +33,4 @@ public class InformationService extends BaseService implements InformationIface 
         deleteById("information", id);
     }
 
-    @Override
-    public void upSort(String id, String sort) {
-        update("UPDATE information SET sort = sort + ? WHERE id = ?", sort, id);
-    }
 }

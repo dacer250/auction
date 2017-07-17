@@ -35,8 +35,4 @@ public class InformationAction extends BaseAction {
         return list();
     }
 
-    public String upSort() {
-        getService().upSort(getId(),getO().get("sort"));
-        return list();
-    }
 }

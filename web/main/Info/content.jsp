@@ -63,14 +63,9 @@
         .center .detail {
             margin-top: 0.38rem;
             background-color: #FFFFFF;
+            padding: 0.38rem;
         }
 
-        .center .detail > div:first-child {
-            text-align: center;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            font-size: 0.684rem;
-        }
     </style>
 </head>
 
@@ -87,7 +82,7 @@
     </div>
     <div class="detail">
         <div>
-            ${obj.obj.synopsis_html}
+            ${obj.synopsis_html}
         </div>
     </div>
 </div>

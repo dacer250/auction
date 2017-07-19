@@ -64,7 +64,7 @@
                     <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                             <button class="btn btn-primary" type="button">返回</button>
-                            <button type="submit" class="btn btn-success">保存</button>
+                            <button type="button" onclick="formSubmit()" class="btn btn-success">保存</button>
                         </div>
                     </div>
                 </form>
@@ -85,6 +85,7 @@
     <script type="text/javascript">
         var ue = UE.getEditor('container');
         function formSubmit() {
+            console.log(ue.getContent());
             $("#synopsis_html").val(ue.getContent());
             $("#o_form").submit();
         }

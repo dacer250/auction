@@ -49,7 +49,14 @@
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">创建时间 </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input disabled="disabled"  value="${obj.create_date}" type="text" class="form-control">
+
+						</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">创建时间 </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input disabled="disabled" value="${obj.create_date}" type="text" class="form-control">
                         </div>
                     </div>
 
@@ -82,6 +89,32 @@
             $("#o_form").submit();
         }
     </script>
+
+    <script type="text/javascript" src="/template/js/jquery.Huploadify.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#upload').Huploadify({
+                auto: true,
+                fileTypeExts: '*.jpg;*.png',
+                multi: true,
+                formData: {g_id: '${obj.id}'},
+                fileSizeLimit: 9999,
+                showUploadedPercent: true,//是否实时显示上传的百分比，如20%
+                showUploadedSize: true,
+                removeTimeout: 9999999,
+                uploader: '/b/uploadFile',
+                onUploadSuccess: function (file, data, response) {
+                    jObj = JSON.parse(data);
+                    $.ajax({
+                        async: false,
+                        url: "addImgList_ajax?id=${obj.id}&o['url']=" + encodeURI(jObj.files[0].url)
+                    });
+                }
+            });
+        });
+    </script>
+
 </myfooter>
 </body>
 </html>

@@ -27,15 +27,21 @@ public class ClassifyService extends BaseService implements ClassifyIface {
 
 
     @Override
-    public List<Map<String, Object>> getGoodsList(String class_id, int pn) {
+    public List<Map<String, Object>> getGoodsList(String class_id, int pn, String f) {
         int cols = 0;
         if (pn > 0) {
             cols = pn * 10;
         }
+        String or = "class_id = '"+class_id+"' ";
+        if (f != null && !f.equals("")) {
+            or = " (g.`name` like '%" + f + "%' OR g.short like '%" + f + "%' OR g.synopsis_html like '%" + f + "%') \n";
+        }
 
         return queryForList("SELECT * FROM (\n" +
-                "SELECT g.*,gii.url FROM goods_info g LEFT JOIN goods_info_imgs gii ON gii.`goods_id` = g.`id` WHERE class_id = ? ORDER BY gii.`sort` DESC\n" +
-                ") t GROUP BY id LIMIT " + cols + ",10", class_id);
+                "SELECT g.*,gii.url FROM goods_info g LEFT JOIN goods_info_imgs gii ON gii.`goods_id` = g.`id` " +
+                "WHERE " + or +
+                "ORDER BY gii.`sort` DESC\n" +
+                ") t GROUP BY id LIMIT " + cols + ",10");
     }
 
 }

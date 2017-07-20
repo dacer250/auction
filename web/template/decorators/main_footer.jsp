@@ -31,14 +31,18 @@
                     <div><span>分类</span></div>
                 </li>
             </a>
+            <a href="/a/main/OtherInfo/about">
             <li>
                 <div><i class="iconfont icon-gongsi"></i></div>
                 <div><span>公司简介</span></div>
             </li>
+            </a>
+            <a href="/a/main/OtherInfo/contact">
             <li>
                 <div><i class="iconfont icon-weizhi"></i></div>
                 <div><span>联系我们</span></div>
             </li>
+            </a>
         </ul>
     </div>
 </div>
@@ -49,11 +53,19 @@
         if (window.location.href.indexOf("Index") > -1) {
             $(".footer li").eq(0).addClass("active")
         }
-        if (window.location.href.indexOf("Info") > -1) {
+        if (window.location.href.indexOf("/Info") > -1) {
             $(".footer li").eq(1).addClass("active")
         }
         if (window.location.href.indexOf("Classify") > -1) {
             $(".footer li").eq(2).addClass("active")
+        }
+
+        if (window.location.href.indexOf("about") > -1) {
+            $(".footer li").eq(3).addClass("active")
+        }
+
+        if (window.location.href.indexOf("contact") > -1) {
+            $(".footer li").eq(4).addClass("active")
         }
     </script>
 </myfooter>

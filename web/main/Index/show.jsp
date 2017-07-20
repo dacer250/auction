@@ -288,6 +288,14 @@
                     document.getElementById("go_to").click();
                 });
             });
+
+
+            $(".boutique [data_img]").each(function () {
+                $(this).click(function () {
+                    $("#go_to").attr("href","/a/main/Classify/getContent?id=" + $(this).attr("data_id"));
+                    document.getElementById("go_to").click();
+                });
+            });
         });
     </script>
 </myfooter>

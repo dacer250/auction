@@ -1,4 +1,4 @@
-<%--
+ds<%--
   Created by IntelliJ IDEA.
   User: MHOME
   Date: 2017/7/2
@@ -116,7 +116,9 @@
         <div class="title"><span>——</span><span></span>分类<span>——</span></div>
         <div class="list">
             <div class="row">
+
             </div>
+            <div class="clear"></div>
         </div>
     </div>
 </div>
@@ -124,8 +126,8 @@
     <script type="text/javascript">
         var cid = "${id}"
         if (cid == "") {
-            $(".left div").find("div").eq(0).addClass("active")
-            $(".right .title").find("span").eq(1).text($(".left div").find("div").eq(0).text());
+            //$(".left div").find("div").eq(0).addClass("active")
+            $(".right .title").find("span").eq(1).text("搜索结果");
         } else {
             $(".left div").find("#" + cid).addClass("active");
             $(".right .title").find("span").eq(1).text($(".left div").find("#" + cid).text());
@@ -133,10 +135,13 @@
     </script>
     <script type="text/javascript">
         $(document).ready(function () {
+            $("#classify_form input").val("${obj.f}");
+
             var num = 0; //计数器初始化为0
             var maxnum = 100; //设置一共要加载几次
+            finished = true;
             checkload();
-            $(window).scroll(function () {
+            $(".right").scroll(function () {
                 checkload();
             });
 
@@ -144,9 +149,9 @@
             function checkload() {
                 var srollPos = $(".right").scrollTop(); //滚动条距离顶部的高度
                 var windowHeight = $(".right").height(); //窗口的高度
-                var dbHiht = $(".row").height(); //整个页面文件的高度
-
-                if ((windowHeight + srollPos) >= (dbHiht) && num != maxnum) {
+                var dbHiht = $(".list").height(); //整个页面文件的高度
+                if (finished && (windowHeight + srollPos) >= (dbHiht) && num != maxnum) {
+                    finished = false;
                     LoadList();
                     num++; //计数器+1
                 }
@@ -155,13 +160,11 @@
             //创建ajax加载函数，并设置变量C，用于输入调用的页面频道,请根据实际情况判断使用，非必要。
             function LoadList() {
                 $.ajax({
-                    url: "list_ajax?id=${id}&o['pn']=" + num,
+                    url: "list_ajax?id=${id}&o['pn']=" + num + "&o['f']=${obj.f}",
                     dataType: "json",
                     success: function (result) {
-                        console.log(result);
                         for (i = 0; i < result.length; i++) {
                             data = result[i];
-                            console.log(data);
                             html =
                                 '<a href="getContent?id=' + data.id + '">' +
                                 '<div class="col">' +
@@ -171,6 +174,7 @@
                             html = $(".list .row").html() + html;
                             $(".list .row").html(html);
                         }
+                        finished = true;
                     }
                 });
             }

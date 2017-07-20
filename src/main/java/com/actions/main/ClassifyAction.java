@@ -6,6 +6,7 @@ import com.iface.main.ClassifyIface;
 import com.service.main.ClassifyService;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -19,19 +20,25 @@ public class ClassifyAction extends BaseAction {
 
     public String show() {
         Map map = new HashMap();
-        if (getId() != null && !getId().equals("")) {
-            setId(getId());
-        } else {
-            setId("1");
-        }
 
         map.put("classinfoList", getService().getClassInfoList());
+
+        if (getO().get("f") != null && !getO().get("f").equals("")) {
+            map.put("f", getO().get("f"));
+        } else {
+            if (getId() != null && !getId().equals("")) {
+                setId(getId());
+            } else {
+                setId(((List<Map<String, Object>>) map.get("classinfoList")).get(0).get("id").toString());
+            }
+        }
+
         setObj(map);
         return render("show");
     }
 
     public String list_ajax() {
-        return json(getService().getGoodsList(getId(), Integer.valueOf(getO().get("pn").toString())));
+        return json(getService().getGoodsList(getId(), Integer.valueOf(getO().get("pn").toString()), getO().get("f")));
     }
 
     public String getContent() {

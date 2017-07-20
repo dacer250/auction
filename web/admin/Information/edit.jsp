@@ -38,19 +38,20 @@
 
 
                     <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">标题图片 </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input name="o['title_img']" value="${obj.title_img}" type="text" class="form-control">
+                            <p>请填写图片URL地址。可用下方编辑器上传图片后取得图片地址</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">详细内容 </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                             <!-- 加载编辑器的容器 -->
                             <script id="container" name="content" type="text/plain">${obj.synopsis_html}</script>
                             <input type="hidden" name="o['synopsis_html']" id="synopsis_html">
                         </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">创建时间 </label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-
-						</div>
                     </div>
 
                     <div class="form-group">
@@ -78,9 +79,9 @@
 <myfooter>
 
     <!-- 配置文件 -->
-    <script type="text/javascript" src="/template/js/ueditor.config.js"></script>
+    <script type="text/javascript" src="/ueditor/ueditor.config.js"></script>
     <!-- 编辑器源码文件 -->
-    <script type="text/javascript" src="/template/js/ueditor.all.min.js"></script>
+    <script type="text/javascript" src="/ueditor/ueditor.all.min.js"></script>
     <!-- 实例化编辑器 -->
     <script type="text/javascript">
         var ue = UE.getEditor('container');

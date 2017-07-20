@@ -9,15 +9,17 @@
 
 <body>
 <div class="header">
-    <div class="search">
-        <div>
-            <i class="icon iconfont icon-search"></i>
-            <input type="text"/>
+    <form id="classify_form" action="/a/main/Classify/show" method="post">
+        <div class="search">
+            <div>
+                <i class="icon iconfont icon-search"></i>
+                <input type="text" name="o['f']" value="${obj.f}"/>
+            </div>
+            <div>
+                <a href='javascript:$("#classify_form").submit();'>搜索</a>
+            </div>
         </div>
-        <div>
-            <a href="index.html">搜索</a>
-        </div>
-    </div>
+    </form>
 </div>
 <sitemesh:write property='body'>Body goes here. Blah blah blah.</sitemesh:write>
 </body>

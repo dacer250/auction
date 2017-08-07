@@ -30,7 +30,7 @@ public class ClassService extends BaseService implements ClassIface {
 
     @Override
     public void del(String id) {
-        deleteById("class_info", id);
+        update("UPDATE class_info SET type = 2 WHERE id = ?", id);
     }
 
     @Override

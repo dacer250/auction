@@ -24,9 +24,13 @@ public class InformationAction extends BaseAction {
         return render("edit");
     }
 
+    public String add() {
+        return render("edit");
+    }
+
     public String update() {
         getService().save(getO());
-        setId(getO().get("id"));
+        setId(String.valueOf(getO().get("id")));
         return edit();
     }
 

@@ -89,7 +89,7 @@
                                     <%
                                         int status = 0;
                                         if (request.getAttribute("status") != null) {
-                                             status = Integer.valueOf(request.getAttribute("status").toString());
+                                            status = Integer.valueOf(request.getAttribute("status").toString());
                                         }
                                     %>
 
@@ -156,16 +156,17 @@
                         </div>
                     </div>
 
-                    <div class="ln_solid"></div>
-
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">图片管理 </label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                            <div id="upload"></div>
-                            <div id="imglist">
+                    <c:if test="${obj.id != null}">
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">图片管理 </label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <div id="upload"></div>
+                                <div id="imglist">
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </c:if>
                 </form>
             </div>
 
@@ -183,6 +184,7 @@
     <!-- 实例化编辑器 -->
     <script type="text/javascript">
         var ue = UE.getEditor('container');
+
         function formSubmit() {
             $("#synopsis_html").val(ue.getContent());
             $("#o_form").submit();

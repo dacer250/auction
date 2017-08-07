@@ -120,14 +120,13 @@
             width: 50%;
             height: 11.4rem;
             float: left;
-            padding: 0.114rem;
         }
 
         .boutique .img_box2 > div {
             width: 100%;
             height: 50%;
             background: url("https://modao.cc/uploads3/images/1018/10185792/raw_1497097383.png") no-repeat;
-            background-size: 95% auto;
+            background-size: 85% auto;
             background-position: center center;
         }
 
@@ -144,6 +143,7 @@
 
         .ranking {
             margin-top: 0.38rem;
+            padding-bottom: 0.38rem;
             background-color: #FFFFFF;
             font-size: 0.684rem;
         }
@@ -277,7 +277,7 @@
         $(document).ready(function () {
             $("[data_img]").each(function () {
                 $(this).css("background", "url(" + $(this).attr("data_img") + ") center no-repeat");
-                $(this).css("background-size", "100% auto");
+                $(this).css("background-size", "98% auto");
                 $(this).css("background-position", "center center");
             });
             $(".menu a").eq(0).addClass("active");
@@ -289,13 +289,15 @@
                 });
             });
 
-
             $(".boutique [data_img]").each(function () {
                 $(this).click(function () {
                     $("#go_to").attr("href","/a/main/Classify/getContent?id=" + $(this).attr("data_id"));
                     document.getElementById("go_to").click();
                 });
             });
+
+            $(".img_box1").css("background-size", "auto 100%");
+
         });
     </script>
 </myfooter>

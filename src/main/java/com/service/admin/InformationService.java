@@ -4,6 +4,7 @@ import com.frame.base.BaseService;
 import com.frame.bean.PageBean;
 import com.iface.admin.InformationIface;
 
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -25,6 +26,9 @@ public class InformationService extends BaseService implements InformationIface 
 
     @Override
     public void save(Map map) {
+        if (!map.containsKey("create_date")) {
+            map.put("create_date", new Date());
+        }
         saveOrUpdate(map, "information");
     }
 

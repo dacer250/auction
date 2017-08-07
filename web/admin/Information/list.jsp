@@ -28,6 +28,18 @@
             </div>
 
             <div class="x_content">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <a href="add" type="button" class="btn btn-success btn-sm">添加</a>
+                    </div>
+                    <div class="col-sm-6">
+                        <label>
+                            <input type="search" class="form-control input-sm" placeholder=""
+                                   aria-controls="datatable">
+                        </label>
+                        <button type="button" class="btn btn-success btn-sm">查找</button>
+                    </div>
+                </div>
                 <div class="table-responsive">
                     <table class="table table-striped jambo_table bulk_action">
                         <thead>

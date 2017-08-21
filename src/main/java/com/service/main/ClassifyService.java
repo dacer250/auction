@@ -32,16 +32,17 @@ public class ClassifyService extends BaseService implements ClassifyIface {
         if (pn > 0) {
             cols = pn * 10;
         }
-        String or = "class_id = '"+class_id+"' ";
+        String or = "cg.class_id = '"+class_id+"' ";
         if (f != null && !f.equals("")) {
             or = " (g.`name` like '%" + f + "%' OR g.short like '%" + f + "%' OR g.synopsis_html like '%" + f + "%') \n";
         }
 
-        return queryForList("SELECT * FROM (\n" +
-                "SELECT g.*,gii.url FROM goods_info g LEFT JOIN goods_info_imgs gii ON gii.`goods_id` = g.`id` " +
+        String sql = "SELECT * FROM (\n" +
+                "SELECT g.*,gii.url FROM class_goods cg LEFT JOIN goods_info g ON cg.goods_id = g.id LEFT JOIN goods_info_imgs gii ON gii.`goods_id` = g.`id` " +
                 "WHERE " + or +
                 "ORDER BY gii.`sort` DESC\n" +
-                ") t GROUP BY id LIMIT " + cols + ",10");
+                ") t GROUP BY id LIMIT " + cols + ",10";
+        return queryForList(sql);
     }
 
 }

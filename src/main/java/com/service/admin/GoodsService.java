@@ -18,9 +18,17 @@ public class GoodsService extends BaseService implements GoodsIface {
         pageBean.setSortOrder("DESC");
         pageBean.setProperty("sort");
 
-        pageBean.setHql("SELECT * FROM (\n" +
-                "SELECT g.*,c.class_name FROM goods_info g LEFT JOIN class_info c ON g.class_id = c.id\n" +
-                ")t");
+
+        String sql = "SELECT * FROM goods_info";
+
+        if (pageBean.getFiltermap().containsKey("cid")&& !pageBean.getFiltermap().get("cid").equals("")) {
+            sql = "SELECT * FROM (\n" +
+                    "SELECT g.*,ci.class_name,ci.id AS cid FROM class_goods cg \n" +
+                    "LEFT JOIN class_info ci ON cg.class_id = ci.id \n" +
+                    "LEFT JOIN goods_info g ON cg.goods_id = g.id)t";
+        }
+
+        pageBean.setHql(sql);
         this.page(pageBean);
     }
 
@@ -38,7 +46,22 @@ public class GoodsService extends BaseService implements GoodsIface {
 
     @Override
     public int update(Map map) {
-        return saveOrUpdate(map, "goods_info");
+        String[] classIds = map.get("class_id_s").toString().split(",");
+        map.remove("class_id_s");
+
+        if (saveOrUpdate(map, "goods_info") >= 1) {
+            //保存对应分类
+            update("DELETE FROM class_goods WHERE goods_id = ?", map.get("id"));
+            Map tmap = new HashMap();
+            for (String classId : classIds) {
+                tmap.put("id", "");
+                tmap.put("goods_id", map.get("id"));
+                tmap.put("class_id", classId.trim());
+                saveOrUpdate(tmap, "class_goods");
+            }
+        }
+
+        return 1;
     }
 
     public List imgList(String id) {
@@ -67,6 +90,11 @@ public class GoodsService extends BaseService implements GoodsIface {
     @Override
     public List getClassInfo() {
         return queryForList("SELECT * FROM class_info ci WHERE father_class = 0 AND type = 1 ORDER BY sort DESC");
+    }
+
+    @Override
+    public List getClassGoods(String goods_id) {
+        return queryForList("SELECT * FROM class_goods t WHERE t.goods_id = ?", goods_id);
     }
 
     @Override

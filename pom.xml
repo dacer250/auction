@@ -279,6 +279,13 @@
             <scope>compile</scope>
         </dependency>
 
+
+        <dependency>
+            <groupId>net.coobird</groupId>
+            <artifactId>thumbnailator</artifactId>
+            <version>[0.4, 0.5)</version>
+        </dependency>
+
     </dependencies>
 
 

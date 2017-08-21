@@ -55,12 +55,18 @@
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">展品分类 </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <select class="form-control" name="o['class_id']">
+                            <div class="checkbox">
                                 <c:forEach items="${obj.classinfo}" var="row" varStatus="i">
-                                    <option value="${row.id}" <c:if
-                                            test="${obj.class_id == row.id}"> selected="selected"</c:if>>${row.class_name}</option>
+                                    <label>
+                                        <input type="checkbox" class="flat" name="o['class_id_s']" value="${row.id}"
+                                        <c:forEach items="${obj.classgoods}" var="row2" varStatus="i2">
+                                               <c:if test="${row.id == row2.class_id}">checked="checked"</c:if>
+                                        </c:forEach>
+                                        >
+                                            ${row.class_name}
+                                    </label>
                                 </c:forEach>
-                            </select>
+                            </div>
                         </div>
                     </div>
 

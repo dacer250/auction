@@ -1,19 +1,14 @@
 package com.springmvc.controller;
 
+import com.frame.util.ImgCompress;
 import com.frame.util.PropertiesTools;
 import com.frame.util.SystemUtil;
-import com.iface.Core.IncomeIface;
-import com.service.Core.IncomeService;
 import com.springmvc.pojo.FileMeta;
 import com.springmvc.pojo.FileMsg;
+import net.coobird.thumbnailator.Thumbnails;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
-import org.springframework.beans.factory.support.RootBeanDefinition;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
-import org.springframework.web.context.support.XmlWebApplicationContext;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
@@ -65,6 +60,11 @@ public class FileUploadController {
                 in.close();
                 logger.info("Server File Location=" + serverFile.getAbsolutePath());
 
+                Thumbnails.of(dir.getAbsolutePath() + File.separator + fileName)
+                        .size(350, 350)
+                        .outputFormat("jpg")
+                        .toFile(dir.getAbsolutePath() + File.separator + fileName+".x");
+
                 FileMeta fileMeta = new FileMeta();
                 fileMeta.setName(fileName);
                 fileMeta.setUrl("/uploadFiles/" + dateStr + "/" + fileName);
@@ -75,6 +75,8 @@ public class FileUploadController {
                 return fileMsg;
 
             } catch (Exception e) {
+                e.printStackTrace();
+
                 FileMeta fileMeta = new FileMeta();
                 fileMeta.setName(file.getOriginalFilename());
                 List<FileMeta> files = new ArrayList<>();

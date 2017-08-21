@@ -111,9 +111,10 @@
         <div class="list">
             <div>
                 <ul>
+                    <a id="open_img" style="display: none;" ></a>
                     <c:forEach items="${obj.img_list}" var="row" varStatus="i">
                         <li>
-                            <div data_img="${row.url}"></div>
+                            <div data_img="${row.url}.x.jpg"></div>
                         </li>
                     </c:forEach>
                 </ul>
@@ -131,15 +132,20 @@
 <myfooter>
     <script type="text/javascript">
         $(document).ready(function () {
-
-            $(".show").css("background", "url('" + $("li").eq(0).find("div").attr("data_img") + "') no-repeat");
-            getImageWidth($("li").eq(0).find("div").attr("data_img"),$(".show"),function (w,h,obj) {
+            var src = $("li").eq(0).find("div").attr("data_img");
+            $(".show").css("background", "url('" + src + "') no-repeat");
+            getImageWidth(src,$(".show"),function (w,h,obj) {
                 if (w >= h) {
                     $(obj).css("background-size", "100% auto");
                 } else {
                     $(obj).css("background-size", "auto 100%");
                 }
-            })
+            });
+            $(".show").click(function () {
+                $("#open_img").attr("href", src.substr(0, src.length - 6));
+                document.getElementById("open_img").click();
+            });
+
 
 
             $(".show").css("background-position", "center center");
@@ -157,6 +163,7 @@
                 $(this).find("div").eq(0).css("background-position", "center center");
 
                 $(this).find("div").eq(0).click(function () {
+
                     $(".show").css("background", "url('" + $(this).attr("data_img") + "') no-repeat");
                     getImageWidth($(this).attr("data_img"), $(".show"), function (w, h, obj) {
                         if (w >= h) {
@@ -166,6 +173,13 @@
                         }
                     });
                     $(".show").css("background-position", "center center");
+
+                    $(".show").unbind("click");
+                    var src = $(this).attr("data_img");
+                    $(".show").click(function () {
+                        $("#open_img").attr("href", src.substr(0, src.length - 6));
+                        document.getElementById("open_img").click();
+                    });
                 });
             });
         });

@@ -14,6 +14,7 @@ public interface GoodsIface {
     public Map edit(String id);
 
     public void del(String... id);
+
     public int update(Map map);
 
     public List imgList(String id);
@@ -26,6 +27,8 @@ public interface GoodsIface {
 
 
     public List getClassInfo();
+
+    public List getClassGoods(String goods_id);
 
     public void upSort(String id, String sort);
 }

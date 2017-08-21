@@ -11,16 +11,21 @@ import java.util.Map;
 /**
  * Created by MHOME on 2017/7/12.
  */
-public class GoodsAction extends BaseAction{
+public class GoodsAction extends BaseAction {
 
     GoodsIface getService() {
         return ServiceFactory.getBean(GoodsService.class, GoodsIface.class);
     }
 
-
     public String list() {
         this.setPageBean(this.initPageBean());
         getService().pageBean(getPageBean());
+        setF(getF());
+
+        Map map = new HashMap();
+        map.put("classinfo", getService().getClassInfo());
+        setObj(map);
+
         return render("list");
     }
 
@@ -28,10 +33,12 @@ public class GoodsAction extends BaseAction{
         Map map;
         if (getId() != null && !getId().equals("")) {
             map = getService().edit(getId());
-        }else{
+            map.put("classgoods", getService().getClassGoods(map.get("id").toString()));
+        } else {
             map = new HashMap();
         }
         map.put("classinfo", getService().getClassInfo());
+
         setObj(map);
         return render("edit");
     }
@@ -46,13 +53,14 @@ public class GoodsAction extends BaseAction{
             }
             getO().remove("status_s");
             getO().put("status", status + "");
-        }else{
+        } else {
             getO().put("status", "0");
         }
 
         if (!getO().containsKey("type")) {
             getO().put("type", "2");
         }
+
         getService().update(getO());
         setId(String.valueOf(getO().get("id")));
         return edit();
@@ -64,7 +72,7 @@ public class GoodsAction extends BaseAction{
     }
 
     public String upSort() {
-        getService().upSort(getId(),getO().get("sort"));
+        getService().upSort(getId(), getO().get("sort"));
         return list();
     }
 

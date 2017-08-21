@@ -25,8 +25,9 @@ ds<%--
 
         .center .left {
             height: 100%;
-            width: 4.56rem;
+            width: 3.8rem;
             /*padding-bottom: 2.3rem;*/
+            padding-top: 1rem;
             overflow: auto;
             float: left;
             border-right: 1px solid #f0f0f0;
@@ -34,7 +35,7 @@ ds<%--
 
         .center .left > div {
             height: 100%;
-            font-size: 0.836rem;
+            font-size: 0.684rem;
             height: 2rem;
             line-height: 2rem;
             text-align: center;
@@ -46,7 +47,7 @@ ds<%--
         }
 
         .center .left .active {
-            font-size: 1.064rem;
+            font-size: 0.836rem;
             color: #a2313e;
             position: relative;
         }
@@ -55,8 +56,7 @@ ds<%--
             position: absolute;
             top: 0px;
             display: block;
-            border-left: 0.076rem solid #a2313e;
-            margin-left: 0.38rem;
+            border-left: 0.15rem solid #a2313e;
         }
 
         .center .right {
@@ -79,6 +79,7 @@ ds<%--
         .center .right .row .col {
             width: 50%;
             padding: 0.114rem;
+            margin-top: 0.684rem;
             float: left;
         }
 
@@ -87,7 +88,7 @@ ds<%--
             width: 100%;
             height: 3.8rem;
             background: url("https://modao.cc/uploads3/images/1018/10185618/raw_1497095559.png") no-repeat;
-            background-size: 100% auto;
+            background-size: auto 100%;
             background-position: center center;
         }
 
@@ -97,7 +98,8 @@ ds<%--
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-            font-size: 0.684rem;
+            font-size: 0.456rem;
+            text-align: center;
         }
     </style>
 </head>
@@ -168,7 +170,7 @@ ds<%--
                             html =
                                 '<a href="getContent?id=' + data.id + '">' +
                                 '<div class="col">' +
-                                '<div class="img" style="background: url(\'' + data.url + '.x.jpg\') no-repeat;background-size: 100% auto;background-position: center center;"></div>' +
+                                '<div class="img" style="background: url(\'' + data.url + '.x.jpg\') no-repeat;background-size:auto 100%;background-position: center center;"></div>' +
                                 '<p>' + data.name + '</p>' +
                                 '</div></a>';
                             html = $(".list .row").html() + html;

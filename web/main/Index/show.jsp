@@ -25,9 +25,10 @@
             z-index: 9999;
             background-color: #F8F8F8;
             border-bottom: 1px solid #f0f0f0;
-            height: 1rem;
+            height: 1.2rem;
             padding-left: 0.38rem;
             padding-right: 0.38rem;
+            font-size: 0.7rem;
         }
 
         .menu > div {
@@ -40,14 +41,14 @@
         }
 
         .menu span {
-            padding-left: 0.19rem;
-            padding-right: 0.19rem;
+            padding-left: 0.4rem;
+            padding-right: 0.4rem;
             display: inline-block;
         }
 
         .menu .active span {
-            padding-bottom: 0.15rem;
-            border-bottom: 0.076rem solid #a2313e;
+            padding-bottom: 0.03rem;
+            border-bottom: 0.15rem solid #a2313e;
             color: #a2313e;
         }
 
@@ -64,9 +65,8 @@
         }
 
         .swiper-slide {
-            height: 11.3rem;
+            height: 10.6rem;
             background-color: #FFFFFF;
-            padding: 0.38rem;
         }
 
         .swiper-slide > div {
@@ -80,7 +80,7 @@
         .boutique {
             margin-top: 0.38rem;
             background-color: #FFFFFF;
-            font-size: 0.684rem;
+            font-size: 0.76rem;
             padding: 0.38rem;
         }
 
@@ -107,7 +107,7 @@
 
         .boutique .img_box1 {
             background: url("https://modao.cc/uploads3/images/1018/10185792/raw_1497097383.png") no-repeat;
-            background-size: 95% auto;
+            background-size: 100% auto;
             background-position: center center;
         }
 
@@ -126,7 +126,7 @@
             width: 100%;
             height: 50%;
             background: url("https://modao.cc/uploads3/images/1018/10185792/raw_1497097383.png") no-repeat;
-            background-size: 85% auto;
+            background-size: 100% auto;
             background-position: center center;
         }
 
@@ -145,7 +145,7 @@
             margin-top: 0.38rem;
             padding-bottom: 0.38rem;
             background-color: #FFFFFF;
-            font-size: 0.684rem;
+            font-size: 0.76rem;
         }
 
         .ranking > div:first-child {
@@ -181,13 +181,14 @@
         }
 
         .ranking .row .right > p:first-child {
-            font-size: 0.912rem;
+            font-size: 0.684rem;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
         }
 
         .ranking .row .right > p:last-child {
+            font-size: 0.532rem;
             color: #666666;
             display: -webkit-box;
             -webkit-box-orient: vertical;
@@ -206,7 +207,7 @@
 
     <div class="menu">
         <div>
-            <%--<a href="#" class="active"><span>推荐推荐</span></a>--%>
+            <a href="#" class="active"><span>推荐</span></a>
             <c:forEach items="${obj.classinfo}" var="row" varStatus="i">
                 <a href="/a/main/Classify/show?id=${row.id}"><span>${row.class_name}</span></a>
             </c:forEach>
@@ -277,9 +278,17 @@
         $(document).ready(function () {
             $("[data_img]").each(function () {
                 $(this).css("background", "url(" + $(this).attr("data_img") + ") center no-repeat");
-                $(this).css("background-size", "98% auto");
+                //$(this).css("background-size", "100% auto");
                 $(this).css("background-position", "center center");
             });
+
+            $(".swiper-wrapper [data_img]").each(function () {
+                $(this).css("background-size", "100% auto");
+            });
+            $(".ranking [data_img]").each(function () {
+                $(this).css("background-size", "auto 100%");
+            });
+
             $(".menu a").eq(0).addClass("active");
 
             $(".swiper-slide [data_img]").each(function () {

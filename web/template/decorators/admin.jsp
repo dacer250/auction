@@ -80,7 +80,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                王老五
+                                ${userMap.login_name}
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -88,7 +88,7 @@
                                     <a href="javascript:;">修改密码</a>
                                 </li>
                                 <li>
-                                    <a href="login.html"><i class="fa fa-sign-out pull-right"></i>退出</a>
+                                    <a href="/a/admin/User/logout"><i class="fa fa-sign-out pull-right"></i>退出</a>
                                 </li>
                             </ul>
                         </li>

@@ -18,13 +18,16 @@ public class GoodsAction extends BaseAction {
     }
 
     public String list() {
+
+        Map map = new HashMap();
+        map.put("classinfo", getService().getClassInfo());
+        map.put("tj", getF().get("tj"));
+        setObj(map);
+
         this.setPageBean(this.initPageBean());
         getService().pageBean(getPageBean());
         setF(getF());
 
-        Map map = new HashMap();
-        map.put("classinfo", getService().getClassInfo());
-        setObj(map);
 
         return render("list");
     }

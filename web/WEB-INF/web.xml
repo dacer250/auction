@@ -19,34 +19,34 @@
 
 
 
-    <!--<filter>
+    <filter>
         <filter-name>LoginFilter</filter-name>
         <filter-class>com.filter.LoginFilter</filter-class>
-        &lt;!&ndash;<init-param>&ndash;&gt;
-        &lt;!&ndash;<param-name>loginURL</param-name>&ndash;&gt;
-        &lt;!&ndash;<param-value>sessionfailure.jsp</param-value>&ndash;&gt;
-        &lt;!&ndash;</init-param>&ndash;&gt;
+        <!--<init-param>-->
+        <!--<param-name>loginURL</param-name>-->
+        <!--<param-value>sessionfailure.jsp</param-value>-->
+        <!--</init-param>-->
         <init-param>
             <param-name>loginURL</param-name>
-            <param-value>a/Base/User/login</param-value>
+            <param-value>a/admin/User/login</param-value>
         </init-param>
         <init-param>
             <param-name>disableURL</param-name>
-            &lt;!&ndash;<param-value>
+            <!--<param-value>
                 /template/*;/index.jsp;/a/admin/UserInfo/login;/a/admin/UserInfo/logout;
-            </param-value>&ndash;&gt;
-            &lt;!&ndash;<param-value>
+            </param-value>-->
+            <!--<param-value>
                 /index.jsp;/a/Base/UserInfo/login;/a/Base/UserInfo/logout;/a/Base/UserInfo/reg;
-            </param-value>&ndash;&gt;
+            </param-value>-->
             <param-value>
-                /index.jsp;/a/Base/User/login;/a/Base/User/logout;/a/Base/User/reg;/a/Base/User/postSMSajax;/a/Base/User/getBackPass;/a/Base/User/saveNewPwd;/bind;/wx
+                /a/admin/User/login;/a/admin/User/logout;
             </param-value>
         </init-param>
     </filter>
     <filter-mapping>
         <filter-name>LoginFilter</filter-name>
-        <url-pattern>/a/*</url-pattern>
-    </filter-mapping>-->
+        <url-pattern>/a/admin/*</url-pattern>
+    </filter-mapping>
 
     <!-- 获得项目的绝对路径 -->
     <context-param>

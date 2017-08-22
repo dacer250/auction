@@ -37,8 +37,17 @@
 
                             <div class="col-sm-6">
                                 <label>
+                                    <select name="f['tj']" class="form-control input-sm">
+                                        <option value="">选择推荐</option>
+                                        <option value="2" <c:if test="${obj.tj == '2'}">selected="selected"</c:if>>首页轮播</option>
+                                        <option value="4" <c:if test="${obj.tj == '4'}">selected="selected"</c:if>>精品推荐</option>
+                                        <option value="8" <c:if test="${obj.tj == '8'}">selected="selected"</c:if>>人气推荐</option>
+                                    </select>
+                                </label>
+
+                                <label>
                                     <select name="f['cid']" class="form-control input-sm">
-                                        <option value="">全部</option>
+                                        <option value="">选择类型</option>
                                         <c:forEach items="${obj.classinfo}" var="row" varStatus="i">
                                             <option value="${row.id}"
                                                     <c:if test="${row.id == f.cid}">selected="selected"</c:if>>${row.class_name}</option>
@@ -64,9 +73,9 @@
 
                                     <th class="column-title">名称</th>
                                     <th class="column-title">分类</th>
-                                    <th class="column-title">排序</th>
-                                    <th class="column-title">状态</th>
+                                    <th class="column-title">推荐</th>
                                     <th class="column-title">类型</th>
+                                    <th class="column-title">排序</th>
                                     <th class="column-title">操作</th>
 
                                 </tr>
@@ -80,9 +89,39 @@
                                         <td class=" "><a href="edit?id=${row.id}" target="_blank">${row.name}</a>
                                         </td>
                                         <td class=" ">${row.class_name}</td>
+
+                                        <td class=" ">
+
+                                            <c:set var="status" value="${row.status}" scope="request"></c:set>
+                                            <%
+                                                int status = 0;
+                                                if (request.getAttribute("status") != null) {
+                                                    status = Integer.valueOf(request.getAttribute("status").toString());
+                                                }
+                                            %>
+                                            <%
+                                                if ((status & 2) == 2) {
+                                                                out.print("[轮播]");
+                                                }
+                                                if ((status & 4) == 4) {
+                                                    out.print("[精品]");
+                                                }
+                                                if ((status & 8) == 8) {
+                                                    out.print("[人气]");
+                                                }
+                                            %>
+                                        </td>
+                                        <td class=" ">
+                                            <c:choose>
+                                                <c:when test="${row.type == 1}">
+                                                    显示
+                                                </c:when>
+                                                <c:otherwise>
+                                                    隐藏
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </td>
                                         <td class=" ">${row.sort}</td>
-                                        <td class=" ">${row.status}</td>
-                                        <td class=" ">${row.type}</td>
                                         <td class=" ">
                                             <a href="upSort?id=${row.id}&o['sort']=+1&pageno=${pageno}"><i
                                                     class="fa fa-arrow-up"></i>上升</a>

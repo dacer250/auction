@@ -19,13 +19,20 @@ public class GoodsService extends BaseService implements GoodsIface {
         pageBean.setProperty("sort");
 
 
-        String sql = "SELECT * FROM goods_info";
+        String sql = "SELECT * FROM goods_info t";
 
         if (pageBean.getFiltermap().containsKey("cid")&& !pageBean.getFiltermap().get("cid").equals("")) {
             sql = "SELECT * FROM (\n" +
                     "SELECT g.*,ci.class_name,ci.id AS cid FROM class_goods cg \n" +
                     "LEFT JOIN class_info ci ON cg.class_id = ci.id \n" +
                     "LEFT JOIN goods_info g ON cg.goods_id = g.id)t";
+        }
+
+        String where = " WHERE t.status";
+        if (pageBean.getFiltermap().containsKey("tj") && !pageBean.getFiltermap().get("tj").equals("")) {
+            where = where + " & " + pageBean.getFiltermap().get("tj") + " = " + pageBean.getFiltermap().get("tj");
+            pageBean.getFiltermap().remove("tj");
+            sql = sql + where;
         }
 
         pageBean.setHql(sql);

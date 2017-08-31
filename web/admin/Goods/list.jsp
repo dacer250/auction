@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/include/taglibs.jsp" %>
 <c:set var="page_list_action"
-       value="list?1=1"></c:set>
+       value="list?1=1&f['tj']=${obj.tj}&f['cid']=${f.cid}&f['name']=${f.name}"></c:set>
 <c:set var="pb" value="${pageBean}"></c:set>
 <html>
 <head>
@@ -123,12 +123,12 @@
                                         </td>
                                         <td class=" ">${row.sort}</td>
                                         <td class=" ">
-                                            <a href="upSort?id=${row.id}&o['sort']=+1&pageno=${pageno}"><i
+                                            <a href="upSort?id=${row.id}&o['sort']=+1&pageno=${pageno}&f['tj']=${obj.tj}&f['cid']=${f.cid}&f['name']=${f.name}"><i
                                                     class="fa fa-arrow-up"></i>上升</a>
-                                            <a href="upSort?id=${row.id}&o['sort']=-1&pageno=${pageno}"><i
+                                            <a href="upSort?id=${row.id}&o['sort']=-1&pageno=${pageno}&f['tj']=${obj.tj}&f['cid']=${f.cid}&f['name']=${f.name}"><i
                                                     class="fa fa-arrow-down"></i>下降</a>
-                                            <a href="del?id=${row.id}&pageno=${pageno}" type="button"
-                                               class="btn btn-success btn-xs">删除</a>
+                                            <%--<a href="del?id=${row.id}&pageno=${pageno}" type="button"
+                                               class="btn btn-success btn-xs">删除</a>--%>
                                         </td>
                                     </tr>
                                 </c:forEach>

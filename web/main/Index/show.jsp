@@ -232,7 +232,11 @@
                     <div class="img_box1" data_img="${obj.boutique.get(0).get("url")}.x.jpg"
                          data_id="${obj.boutique.get(0).get("goods_id")}"></div>
                 </c:if>
-                <div class="img_box2">
+                <c:if test="${fn:length(obj.boutique) > 1}">
+                    <div class="img_box1" data_img="${obj.boutique.get(1).get("url")}.x.jpg"
+                         data_id="${obj.boutique.get(1).get("goods_id")}"></div>
+                </c:if>
+                <%--<div class="img_box2">
                     <c:if test="${fn:length(obj.boutique) > 1}">
                         <div data_img="${obj.boutique.get(1).get("url")}.x.jpg"
                              data_id="${obj.boutique.get(1).get("goods_id")}"></div>
@@ -241,7 +245,7 @@
                         <div data_img="${obj.boutique.get(2).get("url")}.x.jpg"
                              data_id="${obj.boutique.get(2).get("goods_id")}"></div>
                     </c:if>
-                </div>
+                </div>--%>
             </div>
         </div>
         <div class="clear"></div>

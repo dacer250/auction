@@ -12,7 +12,7 @@ import java.util.Map;
 public class IndexService extends BaseService implements IndexIface {
     @Override
     public List<Map<String, Object>> getSwiper() {
-        return queryForList("SELECT gi.`goods_id`,gi.`url` FROM goods_info_imgs gi WHERE gi.`id` IN (\n" +
+        return queryForList("SELECT gi.`goods_id`,gi.`url` FROM goods_info_imgs gi LEFT JOIN goods_info g ON gi.goods_id = g.id WHERE gi.`id` IN (\n" +
                 "SELECT \n" +
                 "  gii.`id` \n" +
                 "FROM\n" +
@@ -22,12 +22,12 @@ public class IndexService extends BaseService implements IndexIface {
                 "WHERE g.`status` & 2 = 2 \n" +
                 "AND g.`type` = 1 \n" +
                 "ORDER BY gii.`sort` DESC\n" +
-                ") GROUP BY gi.`goods_id`");
+                ") GROUP BY gi.`goods_id` ORDER BY g.sort DESC\n");
     }
 
     @Override
     public List<Map<String, Object>> getBoutique() {
-        return queryForList("SELECT gi.`goods_id`,gi.`url` FROM goods_info_imgs gi WHERE gi.`id` IN (\n" +
+        return queryForList("SELECT gi.`goods_id`,gi.`url` FROM goods_info_imgs gi LEFT JOIN goods_info g ON gi.goods_id = g.id WHERE gi.`id` IN (\n" +
                 "SELECT \n" +
                 "  gii.`id` \n" +
                 "FROM\n" +
@@ -37,11 +37,12 @@ public class IndexService extends BaseService implements IndexIface {
                 "WHERE g.`status` & 4 = 4 \n" +
                 "AND g.`type` = 1 \n" +
                 "ORDER BY gii.`sort` DESC\n" +
-                ") GROUP BY gi.`goods_id`");
+                ") GROUP BY gi.`goods_id` ORDER BY g.sort DESC");
     }
 
     @Override
     public List<Map<String, Object>> getRanking() {
+
         return queryForList("SELECT gi.*,t.url FROM goods_info gi LEFT JOIN (\n" +
                 "\tSELECT \n" +
                 "\t\t*\n" +
@@ -51,7 +52,7 @@ public class IndexService extends BaseService implements IndexIface {
                 ")t ON gi.id = t.goods_id\n" +
                 "\tWHERE gi.`status` & 8 = 8\n" +
                 "AND gi.`type` = 1 \n" +
-                "GROUP BY gi.id");
+                "GROUP BY gi.id ORDER BY gi.`sort` DESC ");
     }
 
     @Override

@@ -5,34 +5,136 @@
 		<meta charset="UTF-8">
 		<title></title>
 
-		<link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.css" />
+		<link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" />
 
 		<style>
-			.center{
+			body {
+				font-family: "Microsoft Yahei", "微软雅黑", verdana;
+				color: #333;
+				font-size: 12px;
+			}
+			
+			a,
+			a:hover {
+				text-decoration: none;
+				cursor: pointer;
+			}
+			
+			header {}
+			
+			header .menu {
 				width: 1090px;
 				margin: auto;
-				    background-image: initial;
-    background-position-x: initial;
-    background-position-y: initial;
-    background-size: initial;
-    background-repeat-x: initial;
-    background-repeat-y: initial;
-    background-attachment: initial;
-    background-origin: initial;
-    background-clip: initial;
-    background-color: rgb(244, 240, 234);
+				color: #FFFFFF;
+				height: 35px;
+				line-height: 35px;
+				background-color: #333333;
+			}
+			
+			header .menu .right {
+				float: right;
+			}
+			
+			header .menu .right a {
+				color: #ccc;
+				float: left;
+			}
+			
+			header .tabWrap {
+				height: 204px;
+			}
+			
+			header .tabWrap .inner .nav ul {
+				list-style: none;
+				margin: 0px;
+				padding: 0px;
+				line-height: 1;
+				height: 30px;
+				position: relative;
+				width: 100%;
+			}
+			
+			header .tabWrap .inner .nav li {
+				display: list-item;
+				text-align: -webkit-match-parent;
+				font-weight: 700;
+			}
+			
+			header .tabWrap .inner .nav-item {
+				float: left;
+				padding: 6px 26px 0;
+				font-size: 14px;
+				margin-left: 12px;
+				padding-left: 30px;
+			}
+			
+			header .tabWrap .inner .nav-item .topLevel {
+				position: relative;
+				z-index: 2;
+				display: block;
+				padding-bottom: 6px;
+				color: #000;
+			}
+			
+			header .tabWrap .inner .active .topLevel {
+				color: #b4a078;
+				border-bottom: 3px solid #b4a078;
+			}
+			header .tabWrap .inner .nav-item:hover .topLevel {
+				color: #b4a078;
+				border-bottom: 3px solid #b4a078;
+			}
+			
+			header .tabWrap .inner .search{
+				margin-top: 65px;
+    float: right;
+    width: 400px;
+    z-index: 10;
+			}
+			
+			.center {
+				width: 1090px;
+				margin: auto;
 			}
 		</style>
 	</head>
 
 	<body>
-		<header></header>
+		<header>
+			<div class="menu">
+				<div class="right">
+					<a>关注微信公众号</a>
+				</div>
+			</div>
+			<div class="tabWrap">
+				<a class="logo">logo</a>
+				<div class="inner">
+					<div class="search"></div>
+					<div class="nav">
+						<ul>
+							<li class="nav-item">
+								<a class="topLevel">
+									首页
+								</a>
+							</li>
+							<li class="nav-item active">
+								<a class="topLevel">
+									玉器
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</header>
 		<div class="center">
-
+			<div></div>
 		</div>
 		<footer></footer>
 	</body>
-	<script type="text/javascript" src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.js"></script>
+	<script language="JavaScript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script language="JavaScript" src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
 	<script>
 	</script>
 

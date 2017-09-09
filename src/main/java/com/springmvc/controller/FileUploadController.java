@@ -61,7 +61,7 @@ public class FileUploadController {
                 logger.info("Server File Location=" + serverFile.getAbsolutePath());
 
                 Thumbnails.of(dir.getAbsolutePath() + File.separator + fileName)
-                        .size(350, 350)
+                        .size(650, 650)
                         .outputFormat("jpg")
                         .toFile(dir.getAbsolutePath() + File.separator + fileName+".x");
 

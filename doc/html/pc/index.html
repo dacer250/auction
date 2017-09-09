@@ -6,29 +6,68 @@
 		<title></title>
 
 		<link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="assets/css/swiper.min.css" />
 
 		<style>
 			body {
 				font-family: "Microsoft Yahei", "微软雅黑", verdana;
 				color: #333;
 				font-size: 12px;
+				min-height: 100%;
+			}
+			
+			input {
+				-webkit-appearance: textfield;
+				background-color: white;
+				-webkit-rtl-ordering: logical;
+				user-select: text;
+				cursor: auto;
+				padding: 1px;
+				border-width: 2px;
+				border-style: inset;
+				border-color: initial;
+				border-image: initial;
+				text-rendering: auto;
+				color: initial;
+				letter-spacing: normal;
+				word-spacing: normal;
+				text-transform: none;
+				text-indent: 0px;
+				text-shadow: none;
+				display: inline-block;
+				text-align: start;
+				margin: 0em;
+				font: 13.3333px Arial;
 			}
 			
 			a,
 			a:hover {
 				text-decoration: none;
 				cursor: pointer;
+				color: #333;
+				outline: 0;
 			}
 			
-			header {}
+			header {
+				-webkit-box-shadow: 0 4px 5px -3px rgba(51, 51, 51, .1);
+				-moz-box-shadow: 0 4px 5px -3px rgba(51, 51, 51, .1);
+				box-shadow: 0 4px 5px -3px rgba(51, 51, 51, .1);
+				border-bottom: 1px solid #eaeaea;
+				min-width: 1090px;
+				margin-bottom: 2px;
+			}
 			
 			header .menu {
-				width: 1090px;
-				margin: auto;
 				color: #FFFFFF;
+				background-color: #333333;
+			}
+			
+			header .menu>div {
+				background-color: #333333;
+				margin: auto;
+				width: 1090px;
 				height: 35px;
 				line-height: 35px;
-				background-color: #333333;
 			}
 			
 			header .menu .right {
@@ -37,11 +76,77 @@
 			
 			header .menu .right a {
 				color: #ccc;
-				float: left;
 			}
 			
 			header .tabWrap {
 				height: 204px;
+				width: 1090px;
+				margin: auto;
+				position: relative;
+			}
+			
+			header .tabWrap .logo {
+				display: inline-block;
+				position: absolute;
+				top: 20px;
+				left: 485px;
+				z-index: 2;
+				background-position: 0 0;
+				height: 120px;
+				width: 120px;
+				background: url("assets/img/logo.jpg") no-repeat;
+				background-size: 100% auto;
+				background-position: center center;
+			}
+			
+			header .tabWrap .inner .search {}
+			
+			header .tabWrap .inner .search>div {
+				float: right;
+				margin: 60px;
+				width: 400px;
+				z-index: 10;
+			}
+			
+			header .tabWrap .inner .search .searchInput {
+				float: right;
+				border-width: 0px;
+				border-style: initial;
+				border-color: initial;
+				border-image: initial;
+				font-size: 12px;
+				line-height: 23px;
+				color: rgb(51, 51, 51);
+				width: 252px;
+				margin-top: 9px;
+				height: 23px;
+				border-bottom: 1px solid rgb(216, 206, 188);
+			}
+			
+			header .tabWrap .inner .search .searchButton {
+				float: right;
+				cursor: pointer;
+				padding-top: 10px;
+			}
+			
+			header .tabWrap .inner .search .header-search {
+				font-style: normal;
+				display: inline-block;
+				vertical-align: top;
+				font-size: 12px;
+				word-spacing: normal;
+				letter-spacing: normal;
+				overflow: hidden;
+				background-image: url("assets/img/icon.png");
+				background-repeat: no-repeat;
+				height: 20px;
+				width: 20px;
+				background-position: 0px -145px;
+			}
+			
+			header .tabWrap .inner .nav {
+				width: 1090px;
+				float: left;
 			}
 			
 			header .tabWrap .inner .nav ul {
@@ -50,13 +155,11 @@
 				padding: 0px;
 				line-height: 1;
 				height: 30px;
-				position: relative;
 				width: 100%;
 			}
 			
 			header .tabWrap .inner .nav li {
 				display: list-item;
-				text-align: -webkit-match-parent;
 				font-weight: 700;
 			}
 			
@@ -80,21 +183,321 @@
 				color: #b4a078;
 				border-bottom: 3px solid #b4a078;
 			}
+			
 			header .tabWrap .inner .nav-item:hover .topLevel {
 				color: #b4a078;
 				border-bottom: 3px solid #b4a078;
 			}
 			
-			header .tabWrap .inner .search{
-				margin-top: 65px;
-    float: right;
-    width: 400px;
-    z-index: 10;
-			}
+			.center {}
 			
-			.center {
+			.banner {
 				width: 1090px;
 				margin: auto;
+			}
+			
+			.banner .swiper-container {
+				width: 100%;
+				height: 420px;
+			}
+			
+			.banner .swiper-button-prev,
+			.banner .swiper-button-next {
+				-webkit-background-size: 221px 5951px;
+				background-size: 221px 5951px;
+				background-image: url("assets/img/icon2.png");
+				background-repeat: no-repeat;
+				-moz-border-radius: 500px;
+				-webkit-border-radius: 500px;
+				border-radius: 500px;
+				width: 50px;
+				height: 50px;
+				cursor: pointer;
+				display: block;
+			}
+			
+			.banner .swiper-slide img {
+				width: 1090px;
+				height: 420px;
+			}
+			
+			.left {
+				background-position: 0 -4895px;
+			}
+			
+			.right {
+				background-position: 0 -5025px;
+			}
+			/*精品推荐*/
+			
+			.boutique {
+				margin-top: 25px;
+				background-color: #f4f0ea;
+				-webkit-box-shadow: 0 0 10px rgba(51, 51, 51, .1);
+				-moz-box-shadow:  0 0 10px  rgba(51, 51, 51, .1);
+				box-shadow:  0 0 10px  rgba(51, 51, 51, .1);
+				border-top: 1px solid #eaeaea;
+				border-bottom: 1px solid #eaeaea;
+				min-width: 1090px;
+			}
+			
+			.boutique>div {
+				padding: 25px 0px 25px 0px;
+				width: 1090px;
+				margin: auto;
+				background-color: #f4f0ea;
+			}
+			
+			.boutique .hd {
+				margin-bottom: 20px;
+				line-height: 1;
+			}
+			
+			.boutique .hd .left {
+				float: left;
+				padding-top: 4px;
+			}
+			
+			.boutique .hd .left .name {
+				float: left;
+				margin-right: 20px;
+				font-size: 28px;
+				font-weight: 700;
+			}
+			
+			.boutique .hd .left small {
+				padding-top: 13px;
+				float: left;
+				font-size: 14px;
+			}
+			
+			.boutique .hd .right {
+				float: right;
+				padding-top: 18px;
+			}
+			
+			.boutique .hd .right a {
+				font-size: 14px;
+				display: inline-block;
+			}
+			
+			.boutique .bd {
+				overflow: hidden;
+			}
+			
+			.boutique .bd .box1 {
+				height: 320px;
+				width: 357px;
+				float: left;
+				overflow: hidden;
+				position: relative;
+				text-align: center;
+				background-color: #F4F0EA;
+				padding: 3px;
+			}
+			
+			.boutique .bd .box2 {
+				height: 320px;
+				width: 357px;
+				float: left;
+				overflow: hidden;
+				position: relative;
+				text-align: center;
+				background-color: #F4F0EA;
+				padding: 3px;
+				margin-left: 9px!important;
+			}
+			
+			.boutique .bd .box3 {
+				height: 155px;
+				width: 357px;
+				float: left;
+				overflow: hidden;
+				position: relative;
+				text-align: center;
+				background-color: #F4F0EA;
+				padding: 3px;
+				margin-left: 9px!important;
+			}
+			
+			.boutique .bd .box4 {
+				height: 155px;
+				width: 357px;
+				float: left;
+				overflow: hidden;
+				position: relative;
+				text-align: center;
+				background-color: #F4F0EA;
+				padding: 3px;
+				margin-left: 9px!important;
+				margin-top: 10px;
+			}
+			
+			.boutique .bd .showImg {
+				width: 100%;
+				height: 100%;
+				background: url("http://www.bjwanlonghe.com/uploadFiles/20170817/564e3836beb448e58bac3baff992716e.jpg.x.jpg") center center / 100% no-repeat;
+			}
+			
+			.ranking {
+				margin-top: 26px;
+				height: 510px;
+				padding-top: 20px;
+			}
+			
+			.ranking .swiper-container {
+				width: 100%;
+				height: 364px;
+			}
+			
+			.ranking .swiper-wrapper {}
+			
+			.ranking .swiper-button-prev,
+			.ranking .swiper-button-next {
+				-webkit-background-size: 221px 5951px;
+				background-size: 221px 5951px;
+				background-image: url("assets/img/icon2.png");
+				background-repeat: no-repeat;
+				-moz-border-radius: 500px;
+				-webkit-border-radius: 500px;
+				background-color: #D0C4AF;
+				border-radius: 500px;
+				width: 50px;
+				height: 50px;
+				cursor: pointer;
+				display: block;
+			}
+			
+			.ranking .r_row {
+				position: relative;
+				width: 1090px;
+				margin: auto;
+			}
+			
+			.ranking .hd {
+				margin-bottom: 20px;
+				line-height: 1;
+			}
+			
+			.ranking .r_row .hd .left {
+				float: left;
+				padding-top: 4px;
+			}
+			
+			.ranking .r_row .hd .left .name {
+				float: left;
+				margin-right: 20px;
+				font-size: 28px;
+				font-weight: 700;
+			}
+			
+			.ranking .r_row .hd .left small {
+				padding-top: 13px;
+				float: left;
+				font-size: 14px;
+			}
+			
+			.ranking .r_row .hd .right {
+				float: right;
+				padding-top: 18px;
+			}
+			
+			.ranking .r_row .hd .right a {
+				font-size: 14px;
+				display: inline-block;
+			}
+			
+			.ranking .r_row .bd .swiperCol {
+				width: 265px!important;
+				height: 361px!important;
+				outline: 0;
+				line-height: 1;
+				text-align: center;
+				font-size: 13px;
+				position: relative;
+			}
+			
+			.ranking .r_row .bd ._hover {
+				-moz-box-shadow: 1px 1px 8px rgba(0, 0, 0, .2);
+				-webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, .2);
+				box-shadow: 1px 1px 8px rgba(0, 0, 0, .2);
+				background-color: #f4f0ea;
+			}
+			
+			.ranking .r_row .bd .swiperCol .img {
+				width: 265px;
+				height: 265px;
+				overflow: hidden;
+			}
+			
+			.ranking .r_row .bd .swiperCol .title {
+				width: 200px;
+				margin: auto;
+			}
+			
+			.ranking .r_row .bd .swiperCol .title>div:first-child {
+				padding: 0 10px;
+				margin-bottom: 4px;
+				height: 20px;
+				line-height: 20px;
+				text-align: center;
+				font-size: 13px;
+				font-weight: bold;
+			}
+			
+			.ranking .r_row .bd .swiperCol .title>div:last-child {
+				font-size: 12px;
+				text-align: center;
+				color: #999999;
+			}
+			
+			footer {
+				border-top: 1px solid #f4f0ea;
+				min-width: 1090px;
+			}
+			
+			footer .items {
+				width: 1090px;
+				margin: auto;
+				padding-top: 25px;
+			}
+			
+			footer .items .item {
+				width: 33%;
+				float: left;
+				text-align: center;
+			}
+			
+			footer .item .title {
+				font-size: 16px;
+			}
+			
+			footer .item .bd {
+				text-align: left;
+				width: 80%;
+				margin: auto;
+				font-size: 14px;
+				padding: 25px 0 25px 0;
+			}
+			
+			footer .item .bd p {
+				padding: 1px;
+				margin: 0px;
+			}
+			
+			footer .item .bd img {
+				margin-left: 25%;
+				width: 50%;
+			}
+			
+			footer .icp {
+				min-width: 1090px;
+				margin: auto;
+				background-color: #333333;
+				height: 35px;
+				line-height: 35px;
+				text-align: center;
+				color: #FFFFFF;
 			}
 		</style>
 	</head>
@@ -102,22 +505,76 @@
 	<body>
 		<header>
 			<div class="menu">
-				<div class="right">
-					<a>关注微信公众号</a>
+				<div>
+					<div class="right">
+						<!--<a>关注微信公众号</a>-->
+					</div>
 				</div>
 			</div>
 			<div class="tabWrap">
-				<a class="logo">logo</a>
+				<a class="logo"></a>
 				<div class="inner">
-					<div class="search"></div>
+					<div class="search">
+						<div>
+							<div class="searchButton">
+								<i class="header-search"></i>
+							</div>
+							<input type="text" maxlength="100" autocomplete="off" class="searchInput" value="" data-searchurl="">
+						</div>
+					</div>
 					<div class="nav">
 						<ul>
-							<li class="nav-item">
+							<li class="nav-item active">
 								<a class="topLevel">
 									首页
 								</a>
 							</li>
-							<li class="nav-item active">
+							<li class="nav-item ">
+								<a class="topLevel">
+									玉器
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="topLevel">
+									玉器
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="topLevel">
+									玉器
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="topLevel">
+									玉器
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="topLevel">
+									玉器
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="topLevel">
+									玉器
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="topLevel">
+									玉器
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="topLevel">
+									玉器
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="topLevel">
+									玉器
+								</a>
+							</li>
+							<li class="nav-item">
 								<a class="topLevel">
 									玉器
 								</a>
@@ -128,14 +585,191 @@
 			</div>
 		</header>
 		<div class="center">
-			<div></div>
+			<div class="banner">
+				<div>
+					<div id="swiper-container1" class="swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<img src="assets/img/lb_test.jpg">
+							</div>
+							<div class="swiper-slide">
+								<img src="http://img2.artron.net/auction_manager/auction_zone_7/JG0137/2013122714570166053.jpg">
+							</div>
+
+						</div>
+						<!-- 如果需要分页器 -->
+						<div class="swiper-pagination"></div>
+
+						<!-- 如果需要导航按钮 -->
+						<div class="swiper-button-prev left"></div>
+						<div class="swiper-button-next right"></div>
+
+					</div>
+
+					<div class="clearfix"></div>
+				</div>
+			</div>
+			<div class="boutique">
+				<div class="c_row">
+					<div class="hd">
+						<div class="left">
+							<div class="name">精品推荐</div>
+							<small class="frontName">副slogen</small>
+						</div>
+						<div class="right">
+							<a class="moreItems" data-yxstat="{&quot;event_name&quot;:&quot;click_index_manu_more&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;}" href="/manufacturer/list?_stat_area=manufacturer_link&amp;_stat_referer=index" target="_blank">
+								更多展品 &gt;
+							</a>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="bd">
+						<div class="box1">
+							<div class="showImg"></div>
+						</div>
+						<div class="box2">
+							<div class="showImg"></div>
+						</div>
+						<div class="box3">
+							<div class="showImg"></div>
+						</div>
+						<div class="box4">
+							<div class="showImg"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="ranking">
+				<div class="r_row">
+					<div class="hd">
+						<div class="left">
+							<div class="name">人气推荐</div>
+							<small class="frontName">副slogen</small>
+						</div>
+						<div class="right">
+							<a class="moreItems" data-yxstat="{&quot;event_name&quot;:&quot;click_index_manu_more&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;}" href="/manufacturer/list?_stat_area=manufacturer_link&amp;_stat_referer=index" target="_blank">
+								更多展品 &gt;
+							</a>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="bd">
+						<div id="swiper-container2" class="swiper-container">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<div class="swiperCol">
+										<div class="img" data_img="http://www.bjwanlonghe.com/uploadFiles/20170817/bd8d898807c74869acedaae3ac8bb646.jpg.x.jpg">
+
+										</div>
+										<div class="title">
+											<div>
+												<a>清代朱砂釉赏瓶</a>
+											</div>
+											<div>25.5cm*13cm*1个,朱砂釉瓷器,大清康熙年制,9000-1.2w</div>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="swiperCol">
+										<div class="img" data_img="http://www.bjwanlonghe.com/uploadFiles/20170817/4352855ca3ef4695a7bde20fcfa95185.jpg.x.jpg">
+
+										</div>
+										<div class="title">
+											<div>
+												<a>清代朱砂釉赏瓶</a>
+											</div>
+											<div>25.5cm*13cm*1个,朱砂釉瓷器,大清康熙年制,9000-1.2w</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<!-- 如果需要导航按钮 -->
+							<div class="swiper-button-prev left"></div>
+							<div class="swiper-button-next right"></div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-		<footer></footer>
+		<footer>
+			<div class="items">
+				<div class="item">
+					<div class="title">联系我们</div>
+					<div class="bd">
+						<p>北京万隆和拍卖有限公司</p>
+						<p>地址：北京市朝阳区建外SOHO14号楼15层</p>
+						<p>送拍、预约咨询：010-8069892</p>
+						<p>邮箱：
+							<a href="mailto:bjwlhpm@sina.com" target="_self">bjwlhpm@sina.com</a>
+						</p>
+						<p>网址：
+							<a href="http://www.bjwanlonghe.com" target="_self">http://www.bjwanlonghe.com</a>
+						</p>
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="title">公司介绍</div>
+					<div class="bd">
+						<p>拍卖作为我国独具特色的行业，本公司以其“公开、公平、公正，诚实守信”的服务宗旨，让中国的艺术品在保持中华古代文明特色的基础上，能够走向世界，让世界了解中华五千年文化的精髓。</p>
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="title">关注公众号</div>
+					<div class="bd">
+						<img src="http://www.bjwanlonghe.com/uploadFilesByBaidu/20170822/1503374319557025065.jpg">
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<div class="icp">
+				北京万隆和拍卖有限公司版权所有 © 2017 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 京ICP备04000001号
+			</div>
+		</footer>
 	</body>
 	<script language="JavaScript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script language="JavaScript" src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
+	<script type="text/javascript" src="assets/js/swiper.jquery.min.js"></script>
 	<script>
+		var mySwiper = new Swiper('#swiper-container1', {
+			autoplay: 5000, //可选选项，自动滑动
+			loop: true,
+
+			// 如果需要前进后退按钮
+			nextButton: '.swiper-button-next',
+			prevButton: '.swiper-button-prev',
+
+		})
+
+		var mySwiper2 = new Swiper('#swiper-container2', {
+			pagination: '.swiper-pagination',
+			slidesPerView: 4,
+			loopedSlides: 8,
+			paginationClickable: true,
+			spaceBetween: 30,
+			loop: true,
+			nextButton: '.swiper-button-next',
+			prevButton: '.swiper-button-prev'
+		});
+
+		$(document).ready(function() {
+			$(".swiperCol").hover(function() {
+				$(this).addClass("_hover");
+				//$(this).css("background-color", "yellow");
+			}, function() {
+				$(this).removeClass("_hover");
+				//$(this).css("background-color", "pink");
+			});
+
+			$("[data_img]").each(function() {
+				$(this).css("background", "url(" + $(this).attr("data_img") + ") center no-repeat");
+				$(this).css("background-size", "auto 100%");
+				$(this).css("background-position", "center center");
+			});
+
+		});
 	</script>
 
 </html>

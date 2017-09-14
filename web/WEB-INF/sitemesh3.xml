@@ -25,6 +25,10 @@
     </mapping>
 
 
+    <mapping>
+        <path>/a/pc*</path>
+        <decorator>/template/decorators/pc_main.jsp</decorator>
+    </mapping>
 
     <mapping>
         <path>/a/admin*</path>

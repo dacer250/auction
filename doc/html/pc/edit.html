@@ -195,45 +195,55 @@
 				margin-top: 30px;
 				margin-bottom: 30px;
 			}
-			.center .bd .img{
+			
+			.center .bd .img {
 				float: left;
 			}
+			
 			.center .bd .img .left {
 				width: 540px;
 				height: 540px;
 				float: left;
 				background-color: #f4f0ea;
 			}
-			.center .bd .img .left > div{
+			
+			.center .bd .img .left>div {
 				width: 100%;
 				height: 100%;
 			}
-			.center .bd .img .right{
+			
+			.center .bd .img .right {
 				padding-left: 550px;
 			}
-			.center .bd .img .right li{
+			
+			.center .bd .img .right li {
 				list-style: none;
 				width: 100px;
 				height: 100px;
 				margin-bottom: 10px;
 			}
-			.center .bd .img .right li > div{
+			
+			.center .bd .img .right li>div {
 				width: 100%;
 				height: 100%;
 			}
-			.center .bd .img .right .item:hover{
+			
+			.center .bd .img .right .item:hover {
 				margin: 0;
-    border: 2px solid #b4a078;
+				border: 2px solid #b4a078;
 			}
+			
 			.center .bd .synopsis {
 				padding-left: 680px;
 			}
-			.center .bd .synopsis .title > div:first-child{
+			
+			.center .bd .synopsis .title>div:first-child {
 				font-size: 20px;
 				font-weight: bold;
 				margin-bottom: 20px;
 			}
-			.center .bd .synopsis >div:last-child{
+			
+			.center .bd .synopsis>div:last-child {
 				font-size: 16px;
 				color: #666;
 			}
@@ -404,8 +414,16 @@
 					</div>
 					<div>
 						<div>
-            <p>编号：03-32</p><p>尺寸：25cm*42.5cm*2个</p><p>材质：矾红瓷器</p><p>年号： 余元昌造瓷画家</p><p>价格： 10w-15w</p><p><span style="font-family: arial, helvetica,sans-serif; font-size: 16px;">简介：</span></p><p><span style="font-family: arial, helvetica,sans-serif; font-size: 16px;">余元昌，清末民国时期瓷绘名家，他曾独创<span style="font-size: 14px;"></span>“水粉彩绘”新品种，对景德镇新彩瓷的绘画创作起到了较大的促进。他的作品构图空灵，设色和谐，绘画运笔娴熟，作品存世不多个个精彩。</span></p><p><br></p>
-        </div>
+							<p>编号：03-32</p>
+							<p>尺寸：25cm*42.5cm*2个</p>
+							<p>材质：矾红瓷器</p>
+							<p>年号： 余元昌造瓷画家</p>
+							<p>价格： 10w-15w</p>
+							<p><span style="font-family: arial, helvetica,sans-serif; font-size: 16px;">简介：</span></p>
+							<p><span style="font-family: arial, helvetica,sans-serif; font-size: 16px;">余元昌，清末民国时期瓷绘名家，他曾独创<span style="font-size: 14px;"></span>“水粉彩绘”新品种，对景德镇新彩瓷的绘画创作起到了较大的促进。他的作品构图空灵，设色和谐，绘画运笔娴熟，作品存世不多个个精彩。</span>
+							</p>
+							<p><br></p>
+						</div>
 					</div>
 				</div>
 				<div class="clearfix"></div>
@@ -456,49 +474,49 @@
 			$("[data_img]").each(function() {
 				$(this).css("background", "url(" + $(this).attr("data_img") + ") center no-repeat");
 				$(this).css("background-position", "center center");
-				 getImageWidth($(this).attr("data_img"), $(this), function (w, h, obj) {
-                        if (w >= h) {
-                            $(obj).css("background-size", "100% auto");
-                        } else {
-                            $(obj).css("background-size", "auto 100%");
-                        }
-                    });
+				getImageWidth($(this).attr("data_img"), $(this), function(w, h, obj) {
+					if(w >= h) {
+						$(obj).css("background-size", "100% auto");
+					} else {
+						$(obj).css("background-size", "auto 100%");
+					}
+				});
 			});
-			
-			$(".item").each(function(){
+
+			$(".item").each(function() {
 				$(this).hover(function() {
-				obj = 	$(".img .left div").eq(0);
-				
-				obj.css("background", "url(" + $(this).attr("data_img") + ") center no-repeat");
-				 getImageWidth($(this).attr("data_img"), obj, function (w, h, obj) {
-                        if (w >= h) {
-                            $(obj).css("background-size", "100% auto");
-                        } else {
-                            $(obj).css("background-size", "auto 100%");
-                        }
-                    });
-                    
+					obj = $(".img .left div").eq(0);
+
+					obj.css("background", "url(" + $(this).attr("data_img") + ") center no-repeat");
+					getImageWidth($(this).attr("data_img"), obj, function(w, h, obj) {
+						if(w >= h) {
+							$(obj).css("background-size", "100% auto");
+						} else {
+							$(obj).css("background-size", "auto 100%");
+						}
+					});
+
 				}, function() {
-					
+
 				});
 			})
 
 		});
-		
-		function getImageWidth(url,obj, callback) {
-            var img = new Image();
-            img.src = url;
 
-            // 如果图片被缓存，则直接返回缓存数据
-            if (img.complete) {
-                callback(img.width, img.height,obj);
-            } else {
-                // 完全加载完毕的事件
-                img.onload = function () {
-                    callback(img.width, img.height,obj);
-                }
-            }
-        }
+		function getImageWidth(url, obj, callback) {
+			var img = new Image();
+			img.src = url;
+
+			// 如果图片被缓存，则直接返回缓存数据
+			if(img.complete) {
+				callback(img.width, img.height, obj);
+			} else {
+				// 完全加载完毕的事件
+				img.onload = function() {
+					callback(img.width, img.height, obj);
+				}
+			}
+		}
 	</script>
 
 </html>

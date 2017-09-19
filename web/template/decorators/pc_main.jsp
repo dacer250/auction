@@ -278,7 +278,7 @@
                     <c:forEach items="${classinfo}" var="row" varStatus="i">
                         <c:if test="${i.index<10}">
                             <li class="nav-item ">
-                                <a class="topLevel" href="list.html">
+                                <a class="topLevel" href="/a/pc/Classify/show?id=${row.id}">
                                         ${row.class_name}
                                 </a>
                             </li>

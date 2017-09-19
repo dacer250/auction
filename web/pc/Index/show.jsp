@@ -238,7 +238,6 @@
             width: 265px !important;
             height: 361px !important;
             outline: 0;
-            line-height: 1;
             text-align: center;
             font-size: 13px;
             position: relative;
@@ -258,15 +257,13 @@
         }
 
         .ranking .r_row .bd .swiperCol .title {
-            width: 200px;
+            width: 180px;
             margin: auto;
         }
 
         .ranking .r_row .bd .swiperCol .title > div:first-child {
-            padding: 0 10px;
+            padding: 5px 10px;
             margin-bottom: 4px;
-            height: 20px;
-            line-height: 20px;
             text-align: center;
             font-size: 13px;
             font-weight: bold;
@@ -383,6 +380,7 @@
                                         <div>
                                             <a>${row.name}</a>
                                         </div>
+                                        <div class="clearfix"></div>
                                         <div>${row["short"]}</div>
                                     </div>
                                 </div>

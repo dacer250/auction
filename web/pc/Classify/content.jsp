@@ -15,190 +15,167 @@
     <title></title>
     <style>
 
-        .header {
-            /*32px*/
-            font-size: 0.836rem;
-            text-align: center;
-            height: 2rem;
-            line-height: 2rem;
+        .center {
+            min-width: 1090px;
+            width: 1090px;
+            margin: auto;
+            margin-top: 30px;
+            margin-bottom: 30px;
         }
 
-        .header span {
-            padding-left: 1.6rem;
-            padding-right: 0.38rem;
-            display: block;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        .header i {
-            display: block;
-            position: absolute;
-            top: 0.154rem;
-            left: 0.154rem;
-        }
-
-        .center .img_box {
-            padding-left: 0.19rem;
-            padding-right: 0.19rem;
-            background-color: #FFFFFF;
-            padding: 0.38rem;
-        }
-
-        .center .img_box .show {
-            width: 100%;
-            height: 11.4rem;
-            background: url("https://modao.cc/uploads3/images/1018/10185618/raw_1497095559.png") no-repeat;
-            background-size: 100% auto;
-            background-position: center center;
-        }
-
-        .center .img_box .list > div {
-            padding-top: 0.5rem;
-            clear: both;
-            overflow-x: auto;
-            overflow-y: hidden;
-            white-space: nowrap;
-            scroll-snap-points-x: repeat(100%);
-            scroll-snap-type: mandatory;
-        }
-
-        .center .img_box ul {
+        .center .bd .img {
             float: left;
-            overflow-x: scroll;
-            overflow-y: hidden;
         }
 
-        .center .img_box li {
+        .center .bd .img .left {
+            width: 540px;
+            height: 540px;
+            float: left;
+            background-color: #f4f0ea;
+        }
+
+        .center .bd .img .left > div {
+            width: 100%;
+            height: 100%;
+        }
+
+        .center .bd .img .right {
+            padding-left: 550px;
+        }
+
+        .center .bd .img .right li {
             list-style: none;
-            display: inline-block;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
         }
 
-        .center .img_box li div {
-            width: 3.8rem;
-            height: 3.8rem;
-            background-color: #ECECEC;
-            margin: 0.19rem;
-            background: url("https://modao.cc/uploads3/images/1018/10185618/raw_1497095559.png") no-repeat;
-            background-size: 100% auto;
-            background-position: center center;
+        .center .bd .img .right li > div {
+            width: 100%;
+            height: 100%;
         }
 
-        .center .detail {
-            margin-top: 0.38rem;
-            background-color: #FFFFFF;
-            padding: 0.38rem;
+        .center .bd .img .right .item:hover {
+            margin: 0;
+            border: 2px solid #b4a078;
         }
 
-        .center .detail > div:first-child {
-            text-align: center;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            font-size: 0.684rem;
+        .center .bd .synopsis {
+            padding-left: 680px;
+        }
+
+        .center .bd .synopsis .title > div:first-child {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .center .bd .synopsis > div:last-child {
+            font-size: 16px;
+            color: #666;
         }
     </style>
 </head>
 
 <body>
-<div class="header">
-    <a href="javascript:history.go(-1)"><i class="icon iconfont icon-houtui2"></i></a>
-    <span>${obj.obj.name}</span>
-</div>
+
 <div class="center">
-    <div class="img_box">
-        <div class="show"></div>
-        <div class="list">
-            <div>
-                <ul>
-                    <a id="open_img" style="display: none;" ></a>
+    <div class="bd">
+        <div class="img">
+            <div class="left">
+                <div></div>
+            </div>
+            <div class="right">
+                <ui>
+
                     <c:forEach items="${obj.img_list}" var="row" varStatus="i">
-                        <li>
-                            <div data_img="${row.url}.x.jpg"></div>
-                        </li>
+                        <c:if test="${i.index<5}">
+                            <li>
+                                <div class="item" data_img="${row.url}.x.jpg"></div>
+                            </li>
+                        </c:if>
                     </c:forEach>
-                </ul>
+
+                </ui>
             </div>
         </div>
-        <div class="clear"></div>
-    </div>
-    <div class="detail">
-        <div>拍品详情</div>
-        <div>
-            ${obj.obj.synopsis_html}
+        <div class="synopsis">
+            <div class="title">
+                <div>${obj.obj.name}</div>
+                <!--<div>副标题</div>-->
+            </div>
+            <div>
+                ${obj.obj.synopsis_html}
+            </div>
         </div>
+        <div class="clearfix"></div>
     </div>
 </div>
+
 <myfooter>
-    <script type="text/javascript">
+
+    <script>
         $(document).ready(function () {
-            var src = $("li").eq(0).find("div").attr("data_img");
-            $(".show").css("background", "url('" + src + "') no-repeat");
-            getImageWidth(src,$(".show"),function (w,h,obj) {
+            $("[data_img]").each(function () {
+                $(this).css("background", "url(" + $(this).attr("data_img") + ") center no-repeat");
+                $(this).css("background-position", "center center");
+                getImageWidth($(this).attr("data_img"), $(this), function (w, h, obj) {
+                    if (w >= h) {
+                        $(obj).css("background-size", "100% auto");
+                    } else {
+                        $(obj).css("background-size", "auto 100%");
+                    }
+                });
+            });
+
+            console.log( $("[data_img]").eq(0).attr("data_img"));
+
+            obj = $(".img .left div").eq(0);
+            obj.css("background", "url(" + $("[data_img]").eq(0).attr("data_img") + ") center no-repeat");
+            getImageWidth($("[data_img]").eq(0).attr("data_img"), obj, function (w, h, obj) {
                 if (w >= h) {
                     $(obj).css("background-size", "100% auto");
                 } else {
                     $(obj).css("background-size", "auto 100%");
                 }
             });
-            $(".show").click(function () {
-                $("#open_img").attr("href", src.substr(0, src.length - 6));
-                document.getElementById("open_img").click();
-            });
 
+            $(".right .item").each(function () {
+                $(this).hover(function () {
+                    obj = $(".img .left div").eq(0);
 
-
-            $(".show").css("background-position", "center center");
-
-            $("li").each(function () {
-
-                $(this).find("div").eq(0).css("background", "url('" + $(this).find("div").eq(0).attr("data_img") + "') no-repeat");
-                getImageWidth($(this).find("div").eq(0).attr("data_img"),this, function (w, h,obj) {
-                    if(w>=h) {
-                        $(obj).find("div").eq(0).css("background-size", "100% auto");
-                    }else{
-                        $(obj).find("div").eq(0).css("background-size", "auto 100%");
-                    }
-                });
-                $(this).find("div").eq(0).css("background-position", "center center");
-
-                $(this).find("div").eq(0).click(function () {
-
-                    $(".show").css("background", "url('" + $(this).attr("data_img") + "') no-repeat");
-                    getImageWidth($(this).attr("data_img"), $(".show"), function (w, h, obj) {
+                    obj.css("background", "url(" + $(this).attr("data_img") + ") center no-repeat");
+                    getImageWidth($(this).attr("data_img"), obj, function (w, h, obj) {
                         if (w >= h) {
                             $(obj).css("background-size", "100% auto");
                         } else {
                             $(obj).css("background-size", "auto 100%");
                         }
                     });
-                    $(".show").css("background-position", "center center");
 
-                    $(".show").unbind("click");
-                    var src = $(this).attr("data_img");
-                    $(".show").click(function () {
-                        $("#open_img").attr("href", src.substr(0, src.length - 6));
-                        document.getElementById("open_img").click();
-                    });
+                }, function () {
+
                 });
             });
+
         });
 
-        function getImageWidth(url,obj, callback) {
+        function getImageWidth(url, obj, callback) {
             var img = new Image();
             img.src = url;
 
             // 如果图片被缓存，则直接返回缓存数据
             if (img.complete) {
-                callback(img.width, img.height,obj);
+                callback(img.width, img.height, obj);
             } else {
                 // 完全加载完毕的事件
                 img.onload = function () {
-                    callback(img.width, img.height,obj);
+                    callback(img.width, img.height, obj);
                 }
             }
         }
     </script>
+
 </myfooter>
 </body>
 

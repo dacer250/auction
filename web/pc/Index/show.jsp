@@ -307,41 +307,49 @@
             <div class="hd">
                 <div class="left">
                     <div class="name">精品推荐</div>
-                    <small class="frontName">副slogen</small>
+                    <%--<small class="frontName">副slogen</small>--%>
                 </div>
                 <div class="right">
-                    <a class="moreItems"
+                    <%--<a class="moreItems"
                        data-yxstat="{&quot;event_name&quot;:&quot;click_index_manu_more&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;}"
                        href="/manufacturer/list?_stat_area=manufacturer_link&amp;_stat_referer=index" target="_blank">
                         更多展品 &gt;
-                    </a>
+                    </a>--%>
                 </div>
                 <div class="clearfix"></div>
             </div>
             <div class="bd">
                 <c:if test="${fn:length(obj.boutique) > 0}">
                     <div class="box1">
-                        <div class="showImg" data_img="http://www.bjwanlonghe.com/${obj.boutique.get(0).get("url")}.x.jpg"
-                             data_id="${obj.boutique.get(0).get("goods_id")}"></div>
+                        <a href="/a/pc/Classify/getContent?id=${obj.boutique.get(0).get("goods_id")}">
+                            <div class="showImg" data_img="${obj.boutique.get(0).get("url")}.x.jpg"
+                                 data_id="${obj.boutique.get(0).get("goods_id")}"></div>
+                        </a>
                     </div>
                 </c:if>
                 <c:if test="${fn:length(obj.boutique) > 1}">
                     <div class="box2">
-                        <div class="showImg" data_img="http://www.bjwanlonghe.com/${obj.boutique.get(1).get("url")}.x.jpg"
-                             data_id="${obj.boutique.get(1).get("goods_id")}"></div>
+                        <a href="/a/pc/Classify/getContent?id=${obj.boutique.get(0).get("goods_id")}">
+                            <div class="showImg" data_img="${obj.boutique.get(1).get("url")}.x.jpg"
+                                 data_id="${obj.boutique.get(1).get("goods_id")}"></div>
+                        </a>
                     </div>
                 </c:if>
                 <c:if test="${fn:length(obj.boutique) > 2}">
                     <div class="box3">
-                        <div class="showImg" data_img="http://www.bjwanlonghe.com/${obj.boutique.get(2).get("url")}.x.jpg"
-                             data_id="${obj.boutique.get(2).get("goods_id")}"></div>
+                        <a href="/a/pc/Classify/getContent?id=${obj.boutique.get(0).get("goods_id")}">
+                            <div class="showImg" data_img="${obj.boutique.get(2).get("url")}.x.jpg"
+                                 data_id="${obj.boutique.get(2).get("goods_id")}"></div>
+                        </a>
                     </div>
                 </c:if>
 
                 <c:if test="${fn:length(obj.boutique) > 3}">
                     <div class="box4">
-                        <div class="showImg" data_img="http://www.bjwanlonghe.com/${obj.boutique.get(3).get("url")}.x.jpg"
-                             data_id="${obj.boutique.get(3).get("goods_id")}"></div>
+                        <a href="/a/pc/Classify/getContent?id=${obj.boutique.get(0).get("goods_id")}">
+                            <div class="showImg" data_img="${obj.boutique.get(3).get("url")}.x.jpg"
+                                 data_id="${obj.boutique.get(3).get("goods_id")}"></div>
+                        </a>
                     </div>
                 </c:if>
 
@@ -353,14 +361,14 @@
             <div class="hd">
                 <div class="left">
                     <div class="name">人气推荐</div>
-                    <small class="frontName">副slogen</small>
+                    <%--<small class="frontName">副slogen</small>--%>
                 </div>
                 <div class="right">
-                    <a class="moreItems"
+                    <%--<a class="moreItems"
                        data-yxstat="{&quot;event_name&quot;:&quot;click_index_manu_more&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;}"
                        href="/manufacturer/list?_stat_area=manufacturer_link&amp;_stat_referer=index" target="_blank">
                         更多展品 &gt;
-                    </a>
+                    </a>--%>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -369,11 +377,11 @@
                     <div class="swiper-wrapper">
 
                         <c:forEach items="${obj.ranking}" var="row" varStatus="i">
-
+                            <a href="/a/pc/Classify/getContent?id=${row.id}">
                             <div class="swiper-slide">
                                 <div class="swiperCol">
                                     <div class="img"
-                                         data_img="http://www.bjwanlonghe.com/${row.url}.x.jpg">
+                                         data_img="${row.url}.x.jpg">
 
                                     </div>
                                     <div class="title">
@@ -385,9 +393,8 @@
                                     </div>
                                 </div>
                             </div>
-
+                            </a>
                         </c:forEach>
-
 
 
                     </div>

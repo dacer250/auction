@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/include/taglibs.jsp" %>
-<html>
+<!DOCTYPE html>
 <head>
     <title>北京万隆和拍卖有限公司</title>
     <link rel="Shortcut Icon" href="/template/img/favicon.ico">
@@ -258,26 +258,33 @@
             <div class="search">
                 <div>
                     <div class="searchButton">
-                        <i class="header-search"></i>
+                        <a href='javascript:$("#classify_form").submit();'>
+                            <i class="header-search"></i>
+                        </a>
                     </div>
-                    <input type="text" maxlength="100" autocomplete="off" class="searchInput" value=""
-                           data-searchurl="">
+                    <form id="classify_form" action="/a/pc/Classify/show" method="post">
+                        <input type="text" maxlength="100" autocomplete="off" class="searchInput" name="o['f']"
+                               data-searchurl="">
+                    </form>
                 </div>
             </div>
             <div class="nav">
                 <ul>
                     <li class="nav-item active">
-                        <a class="topLevel">
+                        <a class="topLevel" href="/a/pc/Index/show">
                             首页
                         </a>
                     </li>
 
                     <%
+                        if (session.getAttribute("classinfo") == null) {
+                            response.setHeader("Refresh", "0;url=/");
+                        }
                         request.setAttribute("classinfo", session.getAttribute("classinfo"));
                     %>
                     <c:forEach items="${classinfo}" var="row" varStatus="i">
                         <c:if test="${i.index<10}">
-                            <li class="nav-item ">
+                            <li class="nav-item " id="${row.id}">
                                 <a class="topLevel" href="/a/pc/Classify/show?id=${row.id}">
                                         ${row.class_name}
                                 </a>
@@ -337,5 +344,29 @@
 <script language="JavaScript" src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 <sitemesh:write property='myfooter'></sitemesh:write>
+<script type="text/javascript">
+    (function ($) {
+        $.getUrlParam = function (name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+    })(jQuery);
 
+    var cid = $.getUrlParam('id');
+
+    $(".nav li").removeClass("active");
+
+    if (cid == "") {
+
+    } else {
+        $(".nav").find("#" + cid).addClass("active");
+        try {
+            $(".center .hd .title").text($(".nav").find("#" + cid).text())
+        } catch (exception) {
+
+        }
+    }
+</script>
 </html>

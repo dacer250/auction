@@ -38,4 +38,9 @@ public class ClassifyAction extends BaseAction {
     public String list_ajax() {
         return json(getService().getGoodsList(getId(), Integer.valueOf(getO().get("pn").toString()), getO().get("f")));
     }
+
+    public String getContent() {
+        setObj(getService().getClassInfo(getId()));
+        return render("content");
+    }
 }

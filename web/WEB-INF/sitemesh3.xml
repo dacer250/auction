@@ -6,7 +6,7 @@
     <mapping path="*/include/*" exclue="true"/>
 
     <mapping>
-        <path>/a/*/*Content*</path>
+        <path>/a/main/*Content*</path>
         <decorator>/template/decorators/main_footer.jsp</decorator>
         <decorator>/template/decorators/main.jsp</decorator>
     </mapping>

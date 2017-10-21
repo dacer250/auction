@@ -162,7 +162,7 @@
         .boutique .bd .showImg {
             width: 100%;
             height: 100%;
-            background: url("http://www.bjwanlonghe.com/uploadFiles/20170817/564e3836beb448e58bac3baff992716e.jpg.x.jpg") center center / 100% no-repeat;
+            background: url("http://www.bjwanlonghe.com/uploadFiles/20170817/564e3836beb448e58bac3baff992716e.jpg") center center / 100% no-repeat;
         }
 
         .ranking {
@@ -322,7 +322,7 @@
                 <c:if test="${fn:length(obj.boutique) > 0}">
                     <div class="box1">
                         <a href="/a/pc/Classify/getContent?id=${obj.boutique.get(0).get("goods_id")}">
-                            <div class="showImg" data_img="${obj.boutique.get(0).get("url")}.x.jpg"
+                            <div class="showImg" data_img="${obj.boutique.get(0).get("url")}"
                                  data_id="${obj.boutique.get(0).get("goods_id")}"></div>
                         </a>
                     </div>
@@ -330,7 +330,7 @@
                 <c:if test="${fn:length(obj.boutique) > 1}">
                     <div class="box2">
                         <a href="/a/pc/Classify/getContent?id=${obj.boutique.get(1).get("goods_id")}">
-                            <div class="showImg" data_img="${obj.boutique.get(1).get("url")}.x.jpg"
+                            <div class="showImg" data_img="${obj.boutique.get(1).get("url")}"
                                  data_id="${obj.boutique.get(1).get("goods_id")}"></div>
                         </a>
                     </div>
@@ -338,7 +338,7 @@
                 <c:if test="${fn:length(obj.boutique) > 2}">
                     <div class="box3">
                         <a href="/a/pc/Classify/getContent?id=${obj.boutique.get(2).get("goods_id")}">
-                            <div class="showImg" data_img="${obj.boutique.get(2).get("url")}.x.jpg"
+                            <div class="showImg" data_img="${obj.boutique.get(2).get("url")}"
                                  data_id="${obj.boutique.get(2).get("goods_id")}"></div>
                         </a>
                     </div>
@@ -347,7 +347,7 @@
                 <c:if test="${fn:length(obj.boutique) > 3}">
                     <div class="box4">
                         <a href="/a/pc/Classify/getContent?id=${obj.boutique.get(3).get("goods_id")}">
-                            <div class="showImg" data_img="${obj.boutique.get(3).get("url")}.x.jpg"
+                            <div class="showImg" data_img="${obj.boutique.get(3).get("url")}"
                                  data_id="${obj.boutique.get(3).get("goods_id")}"></div>
                         </a>
                     </div>
@@ -381,7 +381,7 @@
                             <div class="swiper-slide">
                                 <div class="swiperCol">
                                     <div class="img"
-                                         data_img="${row.url}.x.jpg">
+                                         data_img="${row.url}">
 
                                     </div>
                                     <div class="title">

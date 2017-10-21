@@ -114,7 +114,7 @@
                     <a id="open_img" style="display: none;" ></a>
                     <c:forEach items="${obj.img_list}" var="row" varStatus="i">
                         <li>
-                            <div data_img="${row.url}.x.jpg"></div>
+                            <div data_img="${row.url}"></div>
                         </li>
                     </c:forEach>
                 </ul>
@@ -142,7 +142,7 @@
                 }
             });
             $(".show").click(function () {
-                $("#open_img").attr("href", src.substr(0, src.length - 6));
+                $("#open_img").attr("href", src);
                 document.getElementById("open_img").click();
             });
 
@@ -177,7 +177,7 @@
                     $(".show").unbind("click");
                     var src = $(this).attr("data_img");
                     $(".show").click(function () {
-                        $("#open_img").attr("href", src.substr(0, src.length - 6));
+                        $("#open_img").attr("href", src);
                         document.getElementById("open_img").click();
                     });
                 });

@@ -3,6 +3,7 @@ import com.frame.util.FileTools;
 import com.frame.util.SystemUtil;
 import net.coobird.thumbnailator.Thumbnails;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.*;
 import java.util.regex.Matcher;
@@ -10,7 +11,7 @@ import java.util.regex.Pattern;
 
 public class DataInput {
 
-    public static final String url = "jdbc:mysql://120.24.44.240:3306/auction?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=round";
+    public static final String url = "jdbc:mysql://47.94.160.238:3306/auction?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=round";
     public static final String name = "com.mysql.jdbc.Driver";
     public static final String user = "auction";
     public static final String password = "auction!@#";
@@ -141,7 +142,7 @@ public class DataInput {
                 Thumbnails.of(n)
                         .size(350, 350)
                         .outputFormat("jpg")
-                        .toFile(n+".x");
+                        .toFile(n + ".x");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -150,8 +151,99 @@ public class DataInput {
 
     }
 
+    public void f9() {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        File f = new File("C:\\Users\\lovesuper_ao\\Downloads\\小图");
+        String[] fs = f.list();
+
+
+        try {
+            String[] data = FileTools.loadFile("F:\\马博的文件夹\\自有项目\\万隆和\\data.txt").split("\n");
+            for (String s : data) {
+                String[] ss = s.split("\t");
+
+                System.out.println(ss[0] + " == " + ss[1] + " == " + ss[2] + " == " + ss[3] + " == " + ss[4] + " == " + ss[5] + " == " + (ss.length > 6 ? ss[6] : ""));
+
+                String synopsis_html = "";
+                synopsis_html = "<p>编号：" + ss[0] + "</p>";
+                synopsis_html = synopsis_html + "<p>年代：" + ss[1] + "</p>";
+                synopsis_html = synopsis_html + "<p>质地：" + ss[3] + "</p>";
+                synopsis_html = synopsis_html + "<p>尺寸：" + ss[4] + "</p>";
+                synopsis_html = synopsis_html + "<p>价格：" + ss[5] + "</p>";
+                if (ss.length > 6) {
+                    synopsis_html = synopsis_html + "<p></p><p></p><p>" + ss[6] + "</p>";
+                }
+
+                String _short = ss[1] + "，" + ss[3] + "，" + ss[4] + "，" + ss[5];
+
+                long id = 0;
+                try {
+                    ps = conn.prepareStatement("INSERT INTO goods_info(`name`,short,synopsis_html,`type`) " +
+                            "VALUES ('" + ss[2] + "','" + _short + "','" + synopsis_html + "',1)", Statement.RETURN_GENERATED_KEYS);
+                    //ps.setString(1, "test");
+                    ps.execute();
+                    rs = ps.getGeneratedKeys();
+                    if (rs.next()) {
+                        id = rs.getLong(1);
+                    }
+
+                    int c_id = 1;
+                    if (ss[3].equals("玉") || ss[3].equals("翡翠")) {
+                        c_id = 1;
+                    } else if (ss[3].equals("瓷")) {
+                        c_id = 2;
+                    } else {
+                        c_id = 3;
+                    }
+                    ps = conn.prepareStatement("INSERT INTO class_goods(class_id,goods_id) VALUES(" + c_id + "," + id + ")");
+                    ps.execute();
+
+
+                    for (String f1 : fs) {
+
+                        String fn = f1.substring(0, f1.length() - 4);
+                        if (fn.indexOf("-") > 0) {
+                            fn = fn.substring(0, fn.indexOf("-"));
+                        }
+                        if (!ss[0].equals(fn)) {
+                            continue;
+                        }
+
+                        String uuid = SystemUtil.randomUUID();
+                        FileTools.Copy("C:\\Users\\lovesuper_ao\\Downloads\\小图\\" + f1,
+                                "F:\\马博的文件夹\\自有项目\\万隆和\\缩略图\\" + uuid + ".jpg");
+
+                        try {
+                            ps = conn.prepareStatement("INSERT INTO goods_info_imgs(goods_id,url) VALUES (?,?)", Statement.RETURN_GENERATED_KEYS);
+                            ps.setObject(1, id);
+                            ps.setString(2, "/uploadFiles/20171022/" + uuid + ".jpg");
+                            ps.execute();
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
+
+
+                    }
+
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void f10() {
+
+    }
+
     public static void main(String[] args) {
         DataInput di = new DataInput();
-        di.f3();
+        di.f9();
     }
 }

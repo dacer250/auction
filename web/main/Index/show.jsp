@@ -218,7 +218,7 @@
             <div class="swiper-wrapper">
                 <c:forEach items="${obj.swiper}" var="row" varStatus="i">
                     <div class="swiper-slide">
-                        <div data_img="${row.url}.x.jpg" data_id="${row.goods_id}"></div>
+                        <div data_img="${row.url}" data_id="${row.goods_id}"></div>
                     </div>
                 </c:forEach>
             </div>
@@ -229,20 +229,20 @@
         <div>
             <div>
                 <c:if test="${fn:length(obj.boutique) > 0}">
-                    <div class="img_box1" data_img="${obj.boutique.get(0).get("url")}.x.jpg"
+                    <div class="img_box1" data_img="${obj.boutique.get(0).get("url")}"
                          data_id="${obj.boutique.get(0).get("goods_id")}"></div>
                 </c:if>
                 <c:if test="${fn:length(obj.boutique) > 1}">
-                    <div class="img_box1" data_img="${obj.boutique.get(1).get("url")}.x.jpg"
+                    <div class="img_box1" data_img="${obj.boutique.get(1).get("url")}"
                          data_id="${obj.boutique.get(1).get("goods_id")}"></div>
                 </c:if>
                 <%--<div class="img_box2">
                     <c:if test="${fn:length(obj.boutique) > 1}">
-                        <div data_img="${obj.boutique.get(1).get("url")}.x.jpg"
+                        <div data_img="${obj.boutique.get(1).get("url")}"
                              data_id="${obj.boutique.get(1).get("goods_id")}"></div>
                     </c:if>
                     <c:if test="${fn:length(obj.boutique) > 2}">
-                        <div data_img="${obj.boutique.get(2).get("url")}.x.jpg"
+                        <div data_img="${obj.boutique.get(2).get("url")}"
                              data_id="${obj.boutique.get(2).get("goods_id")}"></div>
                     </c:if>
                 </div>--%>
@@ -257,7 +257,7 @@
                 <a href="/a/main/Classify/getContent?id=${row.id}">
                     <div class="row">
                         <div class="left">
-                            <div data_img="${row.url}.x.jpg"></div>
+                            <div data_img="${row.url}"></div>
                         </div>
                         <div class="right">
                             <p>${row.name}</p>

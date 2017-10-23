@@ -135,7 +135,7 @@ ds<%--
                                 '<li>\n' +
                                 '<a href="getContent?id=' + data.id + '">' +
                                 '                <div class="col">\n' +
-                                '                    <div class="img" data_img="' + data.url + '.x.jpg"></div>\n' +
+                                '                    <div class="img" data_img="' + data.url + '"></div>\n' +
                                 '                    <div class="title">\n' +
                                 '                        <div>\n' +
                                 '                            <a>' + data.name + '</a>\n' +

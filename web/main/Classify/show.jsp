@@ -170,7 +170,7 @@ ds<%--
                             html =
                                 '<a href="getContent?id=' + data.id + '">' +
                                 '<div class="col">' +
-                                '<div class="img" style="background: url(\'' + data.url + '.x.jpg\') no-repeat;background-size:auto 100%;background-position: center center;"></div>' +
+                                '<div class="img" style="background: url(\'' + data.url + '\') no-repeat;background-size:auto 100%;background-position: center center;"></div>' +
                                 '<p>' + data.name + '</p>' +
                                 '</div></a>';
                             html = $(".list .row").html() + html;

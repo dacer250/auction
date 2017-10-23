@@ -92,7 +92,7 @@
                     <c:forEach items="${obj.img_list}" var="row" varStatus="i">
                         <c:if test="${i.index<5}">
                             <li>
-                                <div class="item" data_img="${row.url}.x.jpg"></div>
+                                <div class="item" data_img="${row.url}"></div>
                             </li>
                         </c:if>
                     </c:forEach>

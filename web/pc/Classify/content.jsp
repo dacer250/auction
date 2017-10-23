@@ -37,6 +37,7 @@
         .center .bd .img .left > div {
             width: 100%;
             height: 100%;
+            cursor: pointer;
         }
 
         .center .bd .img .right {
@@ -87,7 +88,7 @@
             </div>
             <div class="right">
                 <ui>
-
+                    <a id="open_img" style="display: none;"></a>
                     <c:forEach items="${obj.img_list}" var="row" varStatus="i">
                         <c:if test="${i.index<5}">
                             <li>
@@ -128,9 +129,19 @@
                 });
             });
 
-            console.log( $("[data_img]").eq(0).attr("data_img"));
+            console.log($("[data_img]").eq(0).attr("data_img"));
 
             obj = $(".img .left div").eq(0);
+
+
+            obj.unbind("click");
+            var src = $("[data_img]").eq(0).attr("data_img");
+            obj.click(function () {
+                $("#open_img").attr("href", src.substr(0, src.length - 6));
+                document.getElementById("open_img").click();
+            });
+
+
             obj.css("background", "url(" + $("[data_img]").eq(0).attr("data_img") + ") center no-repeat");
             getImageWidth($("[data_img]").eq(0).attr("data_img"), obj, function (w, h, obj) {
                 if (w >= h) {
@@ -143,6 +154,13 @@
             $(".right .item").each(function () {
                 $(this).hover(function () {
                     obj = $(".img .left div").eq(0);
+
+                    obj.unbind("click");
+                    var src = $(this).attr("data_img");
+                    obj.click(function () {
+                        $("#open_img").attr("href", src.substr(0, src.length - 6));
+                        document.getElementById("open_img").click();
+                    });
 
                     obj.css("background", "url(" + $(this).attr("data_img") + ") center no-repeat");
                     getImageWidth($(this).attr("data_img"), obj, function (w, h, obj) {

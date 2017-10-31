@@ -155,12 +155,12 @@ public class DataInput {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        File f = new File("C:\\Users\\lovesuper_ao\\Downloads\\小图");
+        File f = new File("E:\\我的文件夹\\自有项目\\孟晨拍卖\\小图");
         String[] fs = f.list();
 
 
         try {
-            String[] data = FileTools.loadFile("F:\\马博的文件夹\\自有项目\\万隆和\\data.txt").split("\n");
+            String[] data = FileTools.loadFile("E:\\我的文件夹\\自有项目\\孟晨拍卖\\data.txt").split("\n");
             for (String s : data) {
                 String[] ss = s.split("\t");
 
@@ -212,8 +212,8 @@ public class DataInput {
                         }
 
                         String uuid = SystemUtil.randomUUID();
-                        FileTools.Copy("C:\\Users\\lovesuper_ao\\Downloads\\小图\\" + f1,
-                                "F:\\马博的文件夹\\自有项目\\万隆和\\缩略图\\" + uuid + ".jpg");
+                        FileTools.Copy("E:\\我的文件夹\\自有项目\\孟晨拍卖\\小图\\" + f1,
+                                "E:\\我的文件夹\\自有项目\\孟晨拍卖\\缩略图\\" + uuid + ".jpg");
 
                         try {
                             ps = conn.prepareStatement("INSERT INTO goods_info_imgs(goods_id,url) VALUES (?,?)", Statement.RETURN_GENERATED_KEYS);
@@ -239,6 +239,46 @@ public class DataInput {
     }
 
     public void f10() {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            String[] data = FileTools.loadFile("E:\\data.txt").split("\n");
+            for (String s : data) {
+                String[] ss = s.split("\t");
+
+                System.out.println(ss[0] + " == " + ss[1] + " == " + ss[2] + " == " + ss[3] + " == " + ss[4] + " == " + ss[5] + " == " + (ss.length > 6 ? ss[6] : ""));
+
+                String synopsis_html = "";
+                synopsis_html = "<p>编号：" + ss[0] + "</p>";
+                synopsis_html = synopsis_html + "<p>年代：" + ss[1] + "</p>";
+                synopsis_html = synopsis_html + "<p>质地：" + ss[3] + "</p>";
+                synopsis_html = synopsis_html + "<p>尺寸：" + ss[4] + "</p>";
+                synopsis_html = synopsis_html + "<p>价格：" + ss[5] + "</p>";
+                if (ss.length > 6) {
+                    synopsis_html = synopsis_html + "<p></p><p></p><p>" + ss[6] + "</p>";
+                }
+
+                String _short = ss[1] + "，" + ss[3] + "，" + ss[4] + "，" + ss[5];
+
+                long id = 0;
+                try {
+                    ps = conn.prepareStatement("INSERT INTO goods_info(`name`,short,synopsis_html,`type`) " +
+                            "VALUES ('" + ss[2] + "','" + _short + "','" + synopsis_html + "',1)", Statement.RETURN_GENERATED_KEYS);
+                    //ps.setString(1, "test");
+                    ps.execute();
+                    rs = ps.getGeneratedKeys();
+                    if (rs.next()) {
+                        id = rs.getLong(1);
+                    }
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 

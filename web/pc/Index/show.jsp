@@ -287,9 +287,9 @@
                     <div class="swiper-slide">
                         <img src="/template/img/lb_test.jpg">
                     </div>
-                    <div class="swiper-slide">
+                    <%--<div class="swiper-slide">
                         <img src="http://img2.artron.net/auction_manager/auction_zone_7/JG0137/2013122714570166053.jpg">
-                    </div>
+                    </div>--%>
 
                 </div>
 

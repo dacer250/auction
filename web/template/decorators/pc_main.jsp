@@ -307,7 +307,7 @@
             <div class="bd">
                 <p>北京万隆和拍卖有限公司</p>
                 <p>地址：北京市朝阳区建外SOHO14号楼15层</p>
-                <p>送拍、预约咨询：010-8069892</p>
+                <p>送拍、预约咨询：010-80698927</p>
                 <p>邮箱：
                     <a href="mailto:bjwlhpm@sina.com" target="_self">bjwlhpm@sina.com</a>
                 </p>

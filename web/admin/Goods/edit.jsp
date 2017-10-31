@@ -26,6 +26,9 @@
             width: 30px;
             font-size: 20px;
         }
+        .fa{
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
